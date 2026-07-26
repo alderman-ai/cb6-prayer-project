@@ -51,15 +51,20 @@ export function Figure({
   sizes = '(max-width: 860px) 100vw, 1152px',
   priority = false,
   wide = false,
+  ink = false,
 }: {
   img: Img;
   alt: string;
   sizes?: string;
   priority?: boolean;
   wide?: boolean;
+  /* Sits the image on the deepest ink ground (#16303A) rather than a pale one.
+     For the section drawing, whose own ground has been remapped to that value —
+     the frame and the artwork then read as one intentional panel. */
+  ink?: boolean;
 }) {
   return (
-    <figure className={`cb-figure${wide ? ' cb-figure--wide' : ''}`}>
+    <figure className={`cb-figure${wide ? ' cb-figure--wide' : ''}${ink ? ' cb-figure--ink' : ''}`}>
       <div className="cb-figure__frame">
         <Image
           src={img.src}

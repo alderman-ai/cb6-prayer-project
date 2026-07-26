@@ -32,10 +32,36 @@ const DELIVERABLES = process.env.COPY_SOURCE_DIR || DEFAULT_DELIVERABLES;
 /* -------------------------------------------------------------------------
    Operator-approved resolutions
    ------------------------------------------------------------------------- */
-const URLS = {
+/* Two different things, deliberately kept apart.
+ *
+ * CONTENT_URLS — what the {{LANDING_URL}} / {{LANDING_URL_CZ}} tokens in the
+ * copy resolve to. This is the project's public address as printed on the
+ * leaflet, in the QR code and in the emails: modlitebna.cb6.cz. It is live and
+ * functional, so long-lived materials keep pointing there.
+ *
+ * SITE_URLS — the address of the page this build actually deploys to, used for
+ * <link rel="canonical"> and og:url. As of the mid-run domain handover,
+ * modlitebna.cb6.cz serves the church's own separate Astro site, so the CZ
+ * page must not canonicalise to it — a page may only declare itself canonical
+ * at an address that serves that same page. Our deploy is the Vercel preview.
+ *
+ * ONE-LINE FLIP: when/if our CZ page moves onto modlitebna.cb6.cz, change
+ * SITE_URLS.cz below to CONTENT_URLS.cz (the commented line) and re-run
+ * `npm run sync-copy && npm run deploy:cz`. Nothing else needs touching.
+ */
+const CONTENT_URLS = {
   en: 'https://cb6-en.vercel.app',
   cz: 'https://modlitebna.cb6.cz',
 };
+
+const SITE_URLS = {
+  en: 'https://cb6-en.vercel.app',
+  cz: 'https://cb6-cz.vercel.app',
+  // cz: 'https://modlitebna.cb6.cz',  <- flip to this when our page lives there
+};
+
+/* Back-compat alias: body copy resolves tokens against the content URLs. */
+const URLS = CONTENT_URLS;
 
 const BANK = {
   en: {
@@ -91,9 +117,14 @@ const IMAGES = {
     width: 1280,
     height: 720,
   },
+  /* The section drawing ships with a pure-black ground over ~53% of the frame,
+     which reads as an unfinished asset beside the polished renders. The served
+     file is the derived ink-panel version — black remapped toward --color-ink-900
+     (#16303A) by scripts/make-section-ink.mjs. The raw render stays at
+     /img/section.jpg as the source for that script. */
   section: {
-    src: '/img/section.jpg',
-    from: '11_section-drawing-sanctuary-hall.jpg',
+    src: '/img/section-ink.jpg',
+    from: '11_section-drawing-sanctuary-hall.jpg (black ground remapped to ink-900 — scripts/make-section-ink.mjs)',
     width: 1920,
     height: 1080,
   },
@@ -175,6 +206,96 @@ const CHROME = {
     tableHead: ['', 'Kč', 'USD'],
   },
 };
+
+/* -------------------------------------------------------------------------
+   Factual corrections applied after parsing
+   -------------------------------------------------------------------------
+   A building permit cannot be "rozpracované" (in progress) — the application
+   for it is. Applied here rather than in the copy file so a re-sync from an
+   older source cannot reintroduce the error. If the copy file is corrected at
+   source these become no-ops and can be dropped.
+   ------------------------------------------------------------------------- */
+const FACT_FIXES = {
+  en: [],
+  cz: [
+    [/rozpracované\s+stavební\s+povolení/gi, 'rozpracovaná žádost o stavební povolení'],
+    [/rozpracovaného\s+stavebního\s+povolení/gi, 'rozpracované žádosti o stavební povolení'],
+  ],
+};
+
+/* -------------------------------------------------------------------------
+   Czech typography
+   -------------------------------------------------------------------------
+   Per the build note in the copy file: "tvrdé mezery v číslech a za
+   jednoznakovými předložkami". Czech typesetting forbids a line break inside a
+   number group and after a one-letter preposition/conjunction, so those spaces
+   become U+00A0 NO-BREAK SPACE. Applied to CZ only.
+
+   HTML tags are stepped over — only text nodes are touched — so hrefs,
+   mailto: addresses and attribute values are never rewritten.
+   ------------------------------------------------------------------------- */
+const NBSP = '\u00A0'; // U+00A0 NO-BREAK SPACE
+
+/* v s k z o u a i — plus their capitals. Two-letter vocalised forms (ve, se,
+   ke, ze) are not single-letter and are left alone. */
+const ONE_LETTER = 'aiouvszkAIOUVSZK';
+
+/* Units and number-words that must not be orphaned from their number. */
+const UNIT =
+  '(?:Kč|CZK|USD|\\$|€|%|mil\\.|tis\\.|milion\\p{L}*|miliard\\p{L}*|tisíc\\p{L}*|' +
+  'korun\\p{L}*|m²|m2|hod\\.|let|rok\\p{L}*|člen\\p{L}*|procent\\p{L}*)';
+
+function czTypoText(t) {
+  let s = t;
+  // 54 000 000 -> hard spaces between every digit group (loop: matches overlap)
+  for (let i = 0; i < 5; i += 1) {
+    const next = s.replace(/(\d) (?=\d)/g, `$1${NBSP}`);
+    if (next === s) break;
+    s = next;
+  }
+  // 54 Kč / 54 milionů / 150 členný -> hard space before the unit
+  s = s.replace(new RegExp(`(\\d) (${UNIT})(?!\\p{L})`, 'gu'), `$1${NBSP}$2`);
+  // single-letter preposition/conjunction -> hard space after it.
+  // Run twice: a consumed leading delimiter can hide an adjacent second match.
+  const prep = new RegExp(
+    `(^|[\\s(\\u201e"'—–>])([${ONE_LETTER}]) (?=[0-9A-Za-z\\u00C0-\\u017F\\u201e"'(])`,
+    'g'
+  );
+  for (let i = 0; i < 2; i += 1) s = s.replace(prep, `$1$2${NBSP}`);
+  return s;
+}
+
+/** Apply a text transform to the text nodes of an HTML-bearing string. */
+function onTextNodes(html, fn) {
+  return html
+    .split(/(<[^>]*>)/)
+    .map((part, i) => (i % 2 === 1 ? part : fn(part)))
+    .join('');
+}
+
+/* Keys whose values are machine-readable, not prose — never transformed. */
+const RAW_KEYS = new Set([
+  'url', 'ogImage', 'src', 'href', 'from', 'locale', 'lang', 'givingAnchor',
+  'width', 'height', 'qr', 'pct', 'committed', 'total', 'type',
+]);
+
+/** Deep-walk the parsed content and post-process every prose string. */
+function postProcess(locale, node, key = '') {
+  if (typeof node === 'string') {
+    if (RAW_KEYS.has(key)) return node;
+    let s = node;
+    for (const [re, to] of FACT_FIXES[locale]) s = s.replace(re, to);
+    if (locale === 'cz') s = onTextNodes(s, czTypoText);
+    return s;
+  }
+  if (Array.isArray(node)) return node.map((v) => postProcess(locale, v, key));
+  if (node && typeof node === 'object') {
+    const out = {};
+    for (const [k, v] of Object.entries(node)) out[k] = postProcess(locale, v, k);
+    return out;
+  }
+  return node;
+}
 
 /* -------------------------------------------------------------------------
    Source resolution
@@ -502,7 +623,12 @@ function parse(locale, text) {
   return {
     locale,
     lang: CHROME[locale].lang,
-    url: URLS[locale],
+    // Canonical / og:url — the address THIS build is served from. See the
+    // SITE_URLS note at the top of this file for the one-line domain flip.
+    url: SITE_URLS[locale],
+    // The address printed on leaflets, QR codes and emails.
+    projectUrl: CONTENT_URLS[locale],
+    ogImage: `/og-${locale}.jpg`,
     meta: {
       title: grab(l.title),
       description: grab(l.desc),
@@ -576,7 +702,7 @@ function main() {
   for (const locale of ['en', 'cz']) {
     const src = sourceFor(locale);
     console.log(`  ${locale.toUpperCase()} read from: ${src.path} (${src.kind})`);
-    const data = parse(locale, src.text.replace(/\r\n/g, '\n'));
+    const data = postProcess(locale, parse(locale, src.text.replace(/\r\n/g, '\n')));
     const outPath = join(OUT_DIR, `${locale}.json`);
     const prev = existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : null;
     writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n', 'utf8');

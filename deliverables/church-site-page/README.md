@@ -27,7 +27,7 @@ The simplest deployment. Assuming a virtual host for `modlitebna.cb6.cz`:
 
 ```bash
 # on the server
-mkdir -p /var/www/modlitebna
+mkdir -p /var/www/modlitebna/en
 cp index-cz.html /var/www/modlitebna/index.html
 cp index-en.html /var/www/modlitebna/en/index.html   # optional English copy
 chown -R www-data:www-data /var/www/modlitebna
@@ -109,7 +109,8 @@ page is edited:
 * **Three in-page buttons** plus the sticky header button, all with identical
   wording, all pointing at the giving block. More reads as pressure.
 * **Gold `#E9C46A` is reserved for the call to action** and the progress fill.
-  It appears nowhere else, and it is never used for text (1.7:1 on white).
+  It is never used for text on white (1.7:1). The only other place it appears is
+  as link and tagline colour inside the dark ink footer, where it clears 4.5:1.
 * No popups, no exit overlays, no countdowns, no deadline widgets, no video.
 * The members' 14 million CZK is described as **committed / upsáno** — never as
   raised, received or banked.

@@ -2,6 +2,8 @@
   "locale": "en",
   "lang": "en",
   "url": "https://cb6-en.vercel.app",
+  "projectUrl": "https://cb6-en.vercel.app",
+  "ogImage": "/og-en.jpg",
   "meta": {
     "title": "After thirty years, a permanent home in Prague 6 — CB Dejvice",
     "description": "CB Dejvice is building a sanctuary on Evropská Street in Prague 6. 54 million CZK project, 14 million already committed by members, 40 million still needed.",
@@ -73,8 +75,8 @@
       "We are not building something grand. We are paying what this city charges for a room to worship in."
     ],
     "image": {
-      "src": "/img/section.jpg",
-      "from": "11_section-drawing-sanctuary-hall.jpg",
+      "src": "/img/section-ink.jpg",
+      "from": "11_section-drawing-sanctuary-hall.jpg (black ground remapped to ink-900 — scripts/make-section-ink.mjs)",
       "width": 1920,
       "height": 1080,
       "alt": "Section drawing showing the sanctuary hall built below ground, beneath the existing building."

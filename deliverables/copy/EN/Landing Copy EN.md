@@ -53,7 +53,7 @@ In 2001 we bought a building on Evropská Street with a long-term hope: that one
 
 Then Sunday comes, and the entire congregation walks two kilometres up the road to a rented communist-era hotel auditorium. We have done this for more than thirty years. It is expensive, it takes a small army to set up and pack down each week, and it means the church our neighbours walk past all week is closed on the one morning they might think to come in.
 
-In 2025, after more than twenty years of praying about it, we received permission to build a sanctuary on our own property. What once seemed impossible is now a set of drawings and a building permit in preparation.
+In 2025, after more than twenty years of praying about it, we received permission to build a sanctuary on our own property. What once seemed impossible is now a set of drawings and a building permit application in preparation.
 
 **Images:** side-by-side pair. Left: `01_current-building-exterior-photo.jpg` (the building today). Right: `03_exterior-street-view-render.jpg` (the new entrance pavilion with "CÍRKEV BRATRSKÁ DEJVICE" on the wall). The contrast is the argument — let the two pictures make it without a caption doing the work.
 

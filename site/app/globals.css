@@ -197,6 +197,23 @@ img { max-width: 100%; }
   .cb-header .cb-btn { --btn-pad-x: 1.1rem; font-size: 0.9375rem; }
 }
 
+/* The Czech sticky CTA is "Pomozte postavit modlitebnu" — 27 characters against
+   the English 24 — and it wrapped to two lines in the pill at 390px, making the
+   CZ header permanently taller and rounder than the EN one at every scroll
+   position. The wording is fixed, so the pill is sized down instead of being
+   shortened: fluid type and padding below 460px, plus nowrap so it can never
+   wrap. Verified on one line at 360px and 390px. English is untouched — it
+   already fits at full size. */
+@media (max-width: 460px) {
+  html[lang='cs'] .cb-header { gap: var(--space-sm); }
+  html[lang='cs'] .cb-header .cb-btn {
+    --btn-pad-x: clamp(0.5rem, -0.4rem + 3.8vw, 1.1rem);
+    font-size: clamp(0.78rem, 0.28rem + 2.2vw, 0.9375rem);
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+}
+
 /* ==========================================================================
    HERO  (blocks-hero.html)
    ========================================================================== */
@@ -315,6 +332,15 @@ img { max-width: 100%; }
 }
 .cb-figure__frame img { width: 100%; height: auto; display: block; }
 .cb-figure--wide .cb-figure__frame { background: var(--color-paper); }
+/* Ink panel — for the section drawing, whose own ground is remapped to
+   --color-ink-900 by scripts/make-section-ink.mjs. Frame and artwork then read
+   as one deliberate dark panel rather than an unfinished black fill. Mirrors
+   `.media--ink` in the sibling church-html deliverable. */
+.cb-figure--ink .cb-figure__frame,
+.cb-figure--wide.cb-figure--ink .cb-figure__frame {
+  background: var(--color-ink-900);
+  box-shadow: var(--shadow-lg);
+}
 
 .cb-split {
   display: grid;
@@ -453,6 +479,60 @@ img { max-width: 100%; }
 }
 .cb-figures tbody td { font-size: 1.0625rem; }
 .cb-figures tbody tr:last-child td { border-bottom: 0; }
+
+/* Narrow screens: the three-column money table cannot hold CZK and USD side by
+   side at 390px — it used to scroll inside its own card and hide the USD
+   column behind an undiscoverable inner scrollbar. Below 700px the table
+   restacks as one labelled block per row: the row heading, then CZK, then USD,
+   each on its own line. Every figure is visible with no horizontal scroll.
+   The <thead> is hidden because each cell now carries its own label. */
+@media (max-width: 700px) {
+  .cb-figures { overflow-x: visible; }
+  .cb-figures table { display: block; min-width: 0; width: 100%; }
+  .cb-figures thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .cb-figures tbody { display: block; }
+  .cb-figures tbody tr {
+    display: block;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .cb-figures tbody tr:first-child { padding-top: 0; }
+  .cb-figures tbody tr:last-child { border-bottom: 0; padding-bottom: 0; }
+  .cb-figures tbody th[scope='row'] {
+    display: block;
+    padding: 0 0 var(--space-xs);
+    border-bottom: 0;
+    text-align: left;
+    white-space: normal;
+  }
+  .cb-figures tbody td {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: 2px 0;
+    border-bottom: 0;
+    text-align: right;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .cb-figures tbody td::before {
+    content: attr(data-label);
+    flex: none;
+    font-size: var(--type-eyebrow-size);
+    font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking);
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+}
 
 .cb-credibility {
   margin: var(--space-2xl) 0 0;

@@ -1,5 +1,9 @@
 # Leták CZ — CB Dejvice, sbírka na modlitebnu
 
+> **POST-QA NOTE — 27. 7. 2026**
+> Proběhla jazyková QA korektura českého znění. Tento dokument byl srovnán se skutečně postaveným letákem a nyní mu odpovídá — dokument je opět jediným zdrojem pravdy.
+> V tomto kole navíc: registr „mít bohoslužbu" místo „slavit bohoslužbu" (CB, nikoli liturgický/katolický úzus), přesné znění o **žádosti** o stavební povolení (povolení není vydáno) a sjednocení čtenářsky viditelné adresy projektu na **modlitebna.cb6.cz**.
+
 **Formát:** jednostránkový leták na výšku, A4, PDF. Rozesílá se jako příloha e-mailu a tiskne se.
 **Governing phrase:** *Po třiceti letech trvalý domov v Praze 6*
 **Jednotné znění CTA:** **Pomozte postavit modlitebnu**
@@ -34,7 +38,7 @@ Sbor CB Dejvice vznikl v roce 1995, krátce po pádu komunismu, aby přinesl nad
 
 V roce 2001 jsme koupili dům v Evropské ulici, hlavní tepně Prahy 6, a roky ho rekonstruovali. Dnes je plný každý den v týdnu: dorost a mládež, skupinky, poradenství a akce pro veřejnost. Využitá je každá místnost.
 
-A každou neděli z něj celý sbor odchází a jde dva kilometry do pronajatého sálu hotelu z komunistické éry, aby tam měl bohoslužbu.
+A každou neděli z něj celý sbor odchází a jde dva kilometry do pronajatého sálu v hotelu z komunistické éry, aby tam měl bohoslužbu.
 
 **Obrázek:** `01_current-building-exterior-photo.jpg` — budova, jak vypadá dnes; malý formát vedle tohoto bloku. Tvoří dvojici s vizualizací nad ním jako před/po.
 
@@ -47,7 +51,7 @@ A každou neděli z něj celý sbor odchází a jde dva kilometry do pronajatéh
 - Trvalé a přívětivé místo pro bohoslužby, učednictví i službu navenek — všechno pod jednou střechou.
 - Lepší službu rodinám, studentům a lidem v okolí.
 - Viditelnou a otevřenou přítomnost na ulici, aby naši sousedé věděli, že tu sbor je a že jsou vítáni uvnitř.
-- Prostor k růstu, včetně více nedělních bohoslužeb, jak budou přicházet noví lidé.
+- Prostor k růstu, včetně více nedělních bohoslužeb, s tím, jak budou noví lidé objevovat víru.
 - Konec dlouhodobé závislosti na drahých pronájmech.
 
 **Obrázek:** `03_exterior-street-view-render.jpg` — nový bílý vstupní pavilon s nápisem "CÍRKEV BRATRSKÁ DEJVICE" na stěně. Argument o viditelné přítomnosti v jednom obrázku. Pouze v rozlišení pro obrazovku (960 px); držet na stránce v malém formátu, nebo vyžádat originál od architekta.
@@ -58,7 +62,7 @@ A každou neděli z něj celý sbor odchází a jde dva kilometry do pronajatéh
 
 **Nadpis sekce:** Stavíme pod zem
 
-Pražské stavební předpisy vyžadují, aby byla modlitebna postavena převážně pod úrovní terénu, zapuštěná pod stávající dům. To je podstatně dražší než běžná přístavba. Je to cena za to postavit modlitebnu právě v této ulici a věříme, že to omezení je spíš součástí Božího vedení než překážkou v něm.
+Pražské stavební předpisy vyžadují, aby byla modlitebna postavena převážně pod úrovní terénu, zapuštěná pod stávající dům. To je podstatně dražší než běžná přístavba. Je to cena za modlitebnu právě v této ulici a věříme, že toto omezení je spíš součástí Božího vedení než překážkou v něm.
 
 **Obrázek:** `11_section-drawing-sanctuary-hall.jpg` — řez ukazující sál pod úrovní terénu. Tenhle výkres odpoví na námitku ohledně ceny rychleji než jakákoli věta. Umístit přímo vedle tohoto bloku.
 
@@ -74,7 +78,7 @@ Pražské stavební předpisy vyžadují, aby byla modlitebna postavena převá�
 | **Upsáno členy sboru** | 14 000 000 Kč | 660 000 $ |
 | **Ještě chybí** | 40 000 000 Kč | 1,89 mil. $ |
 
-**Věta pod tabulkou:** Prvních 14 milionů upsali sami členové sboru z obětavých darů.
+**Věta pod tabulkou:** Prvních 14 milionů korun upsali sami členové sboru z vlastní obětavosti.
 
 **Poznámka k sazbě:** vysázet jako vizuální blok — tři čísla, štědrý bílý prostor, zlatá linka `#E9C46A` pod tím — ne jako souvislý text. Spolu s nadpisem a blokem o darování musí obstát samostatně pro čtenáře, který stránku jen prolétne. Výzva k daru zde záměrně *není*; přichází jednou, v CTA v bloku 8. Sloupec USD je volitelný — pokud je leták určen výhradně pro české čtenáře, lze ho vypustit a tabulku zúžit.
 
@@ -86,7 +90,7 @@ Pražské stavební předpisy vyžadují, aby byla modlitebna postavena převá�
 
 **Nadpis sekce:** Reálný projekt, který už běží
 
-Žádost podána 29. června 2024. Pravomocné územní rozhodnutí 17. července 2025. Dne 5. října 2025 členové sboru hlasovali — 100 % přítomných — pro realizaci a téhož měsíce začala příprava stavebního povolení. Kompletní plány, půdorysy a vizualizace jsou zveřejněné na **cb6.cz/modlitebna**.
+Žádost podána 29. června 2024. Pravomocné územní rozhodnutí 17. července 2025. Dne 5. října 2025 členové sboru hlasovali — 100 % přítomných — pro realizaci a téhož měsíce začala příprava žádosti o stavební povolení; žádost je nyní rozpracovaná. Kompletní plány, půdorysy a vizualizace jsou zveřejněné na **modlitebna.cb6.cz**.
 
 **Obrázek:** `12_sanctuary-from-main-entrance.jpg` — interiér hotové modlitebny: světlé dubové lavice, žebrované stěny, štíhlý kříž pod světlíkem. Nejsilnější obrázek ze sady; dát mu zde šířku, nebo ho podržet pro hero a použít místo něj `16_sanctuary-from-last-row.jpg`.
 
@@ -100,9 +104,11 @@ Zveme přátele, partnerské sbory, nadace i jednotlivé dárce, aby zvážili d
 
 ### Číslo účtu
 
-Číslo účtu: **1031051032/5500** (Raiffeisenbank)
+**1031051032/5500** (Raiffeisenbank)
 Variabilní symbol: **5061999**
 Zpráva pro příjemce: **Na modlitebnu**
+
+*(Nadpis sekce už zní „Číslo účtu“ — v sazbě ho na prvním řádku neopakovat.)*
 
 **Popisek pod QR platbou:** QR platba — naskenujte v bankovní aplikaci
 
@@ -110,7 +116,7 @@ Zpráva pro příjemce: **Na modlitebnu**
 
 Celý projekt a další možnosti darování: **{{LANDING_URL_CZ}}**
 
-**Potvrzení o daru:** Na požádání vystavíme potvrzení o daru pro daňové účely. Napište na hospodar@cb6.cz.
+**Potvrzení o daru** *(popisek pro build, netiskne se jako součást věty):* Na požádání vystavíme potvrzení o daru pro daňové účely. Napište na hospodar@cb6.cz.
 
 **Poznámka k sazbě — dva QR kódy:** česká verze letáku nese **oba** kódy a musí je jasně odlišit, jinak si čtenář vybere špatný.
 - **QR platba** (Paylibo / standard ČBA) — předvyplněná částka nezadána, účet 1031051032/5500, VS 5061999, zpráva "Na modlitebnu". Umístit vedle bloku s číslem účtu.
@@ -125,7 +131,7 @@ Celý projekt a další možnosti darování: **{{LANDING_URL_CZ}}**
 
 Dotazy k projektu: **modlitebna@cb6.cz**
 Dary a potvrzení: **hospodar@cb6.cz**
-Informace o projektu: **cb6.cz/modlitebna**
+Informace o projektu: **modlitebna.cb6.cz**
 
 CB Dejvice · Církev bratrská · Evropská, Praha 6
 
@@ -142,4 +148,5 @@ CB Dejvice · Církev bratrská · Evropská, Praha 6
 - **Věrnost zdroji:** zdroj říká *mnozí*, ne "většina". Neposouvat.
 - **Práva k obrázkům** k vizualizacím nejsou písemně doložena. Před publikací potvrdit s modlitebna@cb6.cz.
 - **Tiskové rozlišení:** vizualizace z roku 2025 mají maximálně 1920 px, tj. asi 160 mm při 300 dpi. Pokud má některý obrázek jít na spad, vyžádat originály od architekta.
+- **Adresa projektu v tisku — rozhodnutí o dvou adresách.** V letáku se čtenáři nikdy neukazuje víc než jedna adresa: **modlitebna.cb6.cz**. Je to trvalá adresa projektu, je živá a funkční, a jako jediná dává smysl na papíře, který přežije kampaň. Dřívější tvar `cb6.cz/modlitebna` byl z čtenářsky viditelných míst odstraněn (blok 7 a patička). Druhá adresa existuje jen provozně: naše vlastní landing page běží zatím na náhledových nasazeních (`cb6-cz.vercel.app`, `cb6-en.vercel.app`) a slouží ke kontrole a schvalování, ne k tisku. Do QR kódu na stránku a do `{{LANDING_URL_CZ}}` proto dosadit `https://modlitebna.cb6.cz` — nikdy ne adresu náhledu.
 - **Ověřit před tiskem:** název banky "Raiffeisenbank" je odvozen z kódu 5500 v účtu 1031051032/5500. Potvrdit u sboru, nebo název banky vypustit a nechat jen číslo účtu.

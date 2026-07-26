@@ -99,7 +99,7 @@ export default function Page() {
                 <Html key={i} html={p} />
               ))}
             </div>
-            <Figure img={c.cost.image} alt={c.cost.image.alt} wide />
+            <Figure img={c.cost.image} alt={c.cost.image.alt} wide ink />
             <div className="cb-cta-row">
               <Cta label={c.cost.cta} href={anchor} />
             </div>
@@ -129,7 +129,14 @@ export default function Page() {
                         j === 0 ? (
                           <th key={j} scope="row" dangerouslySetInnerHTML={{ __html: cell }} />
                         ) : (
-                          <td key={j} dangerouslySetInnerHTML={{ __html: cell }} />
+                          /* data-label carries the column head down into the cell so the
+                             table can restack as labelled rows on narrow screens, where
+                             the <thead> is hidden. See .cb-figures in globals.css. */
+                          <td
+                            key={j}
+                            data-label={c.money.table.head[j]}
+                            dangerouslySetInnerHTML={{ __html: cell }}
+                          />
                         )
                       )}
                     </tr>
