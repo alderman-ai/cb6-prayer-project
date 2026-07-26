@@ -1,0 +1,257 @@
+{
+  "locale": "cz",
+  "lang": "cs",
+  "url": "https://modlitebna.cb6.cz",
+  "meta": {
+    "title": "Po třiceti letech trvalý domov v Praze 6 — CB Dejvice",
+    "description": "Sbor CB Dejvice staví modlitebnu v Evropské ulici v Praze 6. Projekt za 54 milionů korun, 14 milionů už upsali členové, 40 milionů ještě chybí.",
+    "governingPhrase": "Po třiceti letech trvalý domov v Praze 6"
+  },
+  "chrome": {
+    "skip": "Přejít na platební údaje",
+    "brandAlt": "Církev bratrská Dejvice",
+    "eyebrow": "CB Dejvice · Praha 6",
+    "givingAnchor": "darovat"
+  },
+  "cta": {
+    "label": "Pomozte postavit modlitebnu",
+    "href": "#darovat"
+  },
+  "hero": {
+    "headline": "Po třiceti letech trvalý domov v Praze 6",
+    "subhead": "Náš sbor se už přes třicet let schází k bohoslužbám v pronajatém hotelovém sále. Teď máme povolení postavit vlastní modlitebnu — a chybí nám 40 000 000 Kč.",
+    "reassurance": "Dary přijímáme převodem na sborový účet nebo QR platbou. Na požádání vystavíme potvrzení o daru pro daňové účely.",
+    "image": {
+      "src": "/img/hero-overlay.jpg",
+      "from": "02_proposed-design-overlay-on-photo.jpg",
+      "width": 3949,
+      "height": 2954,
+      "alt": "Navrhovaná modlitebna — bílá perforovaná kamenná stěna s lomeným obloukem vstupu — vsazená do dnešní fotografie budovy v Evropské ulici."
+    }
+  },
+  "story": {
+    "heading": "Sbor bez vlastního sálu",
+    "body": [
+      "Sbor CB Dejvice vznikl v roce 1995, krátce po pádu komunismu, aby přinesl naději evangelia do Prahy 6. Po třiceti letech je nás asi 150 členů — na české poměry velký sbor — ve čtvrti se 109 000 obyvateli a 38 000 vysokoškoláky, z nichž mnozí nikdy nevkročili do evangelického kostela. Bůh si tento sbor už použil i k založení dalšího sboru v Praze.",
+      "V roce 2001 jsme koupili dům v Evropské ulici s dlouhodobou nadějí: že jednou pojme všechno, co děláme. Roky jsme ho od té doby rekonstruovali. Dnes je plný každý den v týdnu — dorost a mládež, skupinky, poradenství, akce pro veřejnost a služba navenek. Využitá je každá místnost."
+    ],
+    "image": {
+      "src": "/img/foyer.jpg",
+      "from": "05_foyer-toward-evropska-street.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Foyer sborové budovy s výhledem do Evropské ulice, kolem kavárny a okna dětského programu."
+    }
+  },
+  "beforeAfter": {
+    "heading": "Každou neděli odcházíme",
+    "body": [
+      "Pak přijde neděle a celý sbor jde dva kilometry po ulici do pronajatého sálu hotelu z komunistické éry. Děláme to už přes třicet let. Je to drahé, každý týden to stojí malou armádu lidí, kteří to postaví a zase složí, a znamená to, že budova, kolem které naši sousedé chodí celý týden, je zavřená právě to jedno ráno, kdy by je mohlo napadnout přijít dovnitř.",
+      "V roce 2025, po více než dvaceti letech modliteb, jsme dostali povolení postavit modlitebnu na vlastním pozemku. Z toho, co kdysi vypadalo nemožně, je dnes sada výkresů a rozpracované stavební povolení."
+    ],
+    "before": {
+      "src": "/img/before.jpg",
+      "from": "01_current-building-exterior-photo.jpg",
+      "width": 3948,
+      "height": 2954,
+      "alt": "Sborová budova v Evropské ulici, jak vypadá dnes.",
+      "tag": "Dnes"
+    },
+    "after": {
+      "src": "/img/after.jpg",
+      "from": "pohled_01s.jpg (Updated Pictures — supersedes 03_exterior-street-view-render.jpg)",
+      "width": 1280,
+      "height": 720,
+      "alt": "Vizualizace nového vstupního pavilonu s nápisem CÍRKEV BRATRSKÁ DEJVICE na stěně.",
+      "tag": "Návrh"
+    }
+  },
+  "cost": {
+    "heading": "Stavíme pod zem",
+    "body": [
+      "Pražské stavební předpisy na tomto pozemku běžnou přístavbu nepovolí. Aby se dalo stavět vůbec, musí modlitebna jít převážně pod zem, vykopat a postavit se pod stávajícím domem. To je mnohem dražší než přilepit sál ze strany — a je to jediný důvod, proč se stopadesátičlenný sbor dívá na projekt za 54 milionů korun.",
+      "Nestavíme nic velkolepého. Platíme to, co tohle město účtuje za místnost, kde se dá scházet k bohoslužbě."
+    ],
+    "image": {
+      "src": "/img/section.jpg",
+      "from": "11_section-drawing-sanctuary-hall.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Řez ukazující sál modlitebny pod úrovní terénu, pod stávající budovou."
+    },
+    "cta": "Pomozte postavit modlitebnu"
+  },
+  "money": {
+    "heading": "Kde stojíme",
+    "table": {
+      "head": [
+        "",
+        "Kč",
+        "USD"
+      ],
+      "rows": [
+        [
+          "<strong>Náklady projektu</strong>",
+          "54 000 000 Kč",
+          "2,55 mil. $"
+        ],
+        [
+          "<strong>Upsáno členy sboru</strong>",
+          "14 000 000 Kč",
+          "660 000 $"
+        ],
+        [
+          "<strong>Ještě chybí</strong>",
+          "40 000 000 Kč",
+          "1,89 mil. $"
+        ]
+      ]
+    },
+    "body": [
+      "Prvních 14 milionů korun upsali z obětavých darů sami členové sboru, dřív než jsme o cokoli požádali kohokoli zvenčí. Lidé, kteří jsou tomuto projektu nejblíž, na sebe už vzali čtvrtinu."
+    ],
+    "credibility": "Žádost podána 29. června 2024. Pravomocné územní rozhodnutí 17. července 2025. Dne 5. října 2025 členové sboru hlasovali, 100 % přítomných, pro realizaci. Kompletní plány, půdorysy a vizualizace jsou zveřejněné na <a class=\"cb-link\" href=\"https://www.cb6.cz/modlitebna\" target=\"_blank\" rel=\"noopener\">cb6.cz/modlitebna</a>.",
+    "progress": {
+      "committed": 14000000,
+      "total": 54000000,
+      "pct": 26,
+      "committedLabel": "14 000 000 Kč",
+      "committedCaption": "Upsáno členy sboru",
+      "totalLabel": "54 000 000 Kč",
+      "totalCaption": "Náklady projektu",
+      "ariaLabel": "Sbírka na modlitebnu",
+      "ariaText": "Upsáno 14 milionů korun z projektu za 54 milionů — 26 procent"
+    }
+  },
+  "benefits": {
+    "heading": "Co modlitebna umožní",
+    "items": [
+      {
+        "title": "Jedna střecha",
+        "body": "Bohoslužby, učednictví i služba navenek v jedné budově, ne rozdělené mezi dvě adresy dva kilometry od sebe."
+      },
+      {
+        "title": "Otevřené dveře",
+        "body": "Viditelná, vlídná přítomnost na hlavní třídě Prahy 6, aby sousedé viděli, že tu sbor je a že jsou uvnitř vítaní."
+      },
+      {
+        "title": "Místo pro ty, kdo přijdou",
+        "body": "Prostor pro rodiny, pro studenty a pro více nedělních bohoslužeb, jak budou noví lidé objevovat víru."
+      },
+      {
+        "title": "Konec pronájmů",
+        "body": "Peníze, které dnes každý týden odcházejí hotelu, půjdou do služby."
+      }
+    ],
+    "image": {
+      "src": "/img/sanctuary.jpg",
+      "from": "A_06.jpg (Updated Pictures — supersedes 12_sanctuary-from-main-entrance.jpg)",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Hotová modlitebna: světlé dubové židle, žebrované šedé stěny a štíhlý kříž pod světlíkem."
+    }
+  },
+  "give": {
+    "heading": "Pomozte postavit modlitebnu",
+    "items": [
+      {
+        "type": "p",
+        "html": "Dary na modlitebnu přijímáme převodem na sborový účet vedený u Raiffeisenbank, který je pro tento projekt určený."
+      },
+      {
+        "type": "bank"
+      },
+      {
+        "type": "p",
+        "html": "<strong>QR platba:</strong> naskenujte kód v bankovní aplikaci; účet, variabilní symbol i zpráva se předvyplní. Částku zadáte sami."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Variabilní symbol uvádějte přesně tak, jak je uvedený výše</strong> — právě on rozliší dar na modlitebnu od běžných sborových prostředků. Prosíme, nenahrazujte ho svým jménem."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Chcete-li potvrzení o daru pro daňové účely,</strong> napište po odeslání převodu své jméno a adresu na <strong><a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a></strong> a odpoví vám konkrétní člověk. Dar církvi lze za podmínek daných zákonem o daních z příjmů uplatnit jako odpočet od základu daně; potvrzení vystavujeme standardně za kalendářní rok."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Dotazy k daru, potvrzení nebo převodu ze zahraničí:</strong> pište na <strong><a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a></strong>."
+      }
+    ],
+    "bank": {
+      "title": "Sborový účet na modlitebnu",
+      "rows": [
+        {
+          "label": "Banka",
+          "value": "Raiffeisenbank a.s."
+        },
+        {
+          "label": "Číslo účtu",
+          "value": "1031051032/5500"
+        },
+        {
+          "label": "Variabilní symbol",
+          "value": "5061999"
+        },
+        {
+          "label": "Zpráva pro příjemce",
+          "value": "Na modlitebnu"
+        }
+      ],
+      "foot": null,
+      "qr": {
+        "src": "/qr/qr-platba.png",
+        "caption": "QR platba"
+      }
+    },
+    "cta": "Pomozte postavit modlitebnu"
+  },
+  "faq": {
+    "heading": "Na co se lidé ptají",
+    "items": [
+      {
+        "q": "Můžu si dar odečíst z daní?",
+        "a": "Ano, za podmínek stanovených zákonem o daních z příjmů lze dar církvi uplatnit jako odpočet od základu daně. Napište po odeslání daru na <a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a> a vystavíme vám potvrzení o daru. Konkrétní daňové posouzení vždy záleží na vaší situaci — v případě pochybností se obraťte na svého daňového poradce."
+      },
+      {
+        "q": "Jak peníze doputují k vám?",
+        "a": "Převodem v korunách na sborový účet určený pro modlitebnu, s variabilním symbolem uvedeným výše. Nejrychlejší cesta je QR platba v bankovní aplikaci. Kompletní údaje jsou v sekci o darování."
+      },
+      {
+        "q": "Kdo peníze dostane a co se stane, když se projekt změní?",
+        "a": "Dary jdou na sborový účet u Raiffeisenbank vedený sborem CB Dejvice a variabilním symbolem určený na modlitebnu. Informace o projektu, výkresy a postup povolování zveřejňujeme na <a class=\"cb-link\" href=\"https://www.cb6.cz/modlitebna\" target=\"_blank\" rel=\"noopener\">cb6.cz/modlitebna</a>. Dotazy k nakládání s prostředky směřujte na <a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a>."
+      },
+      {
+        "q": "Může darovat sbor, firma nebo nadace jako instituce?",
+        "a": "Ano. Partnerské sbory, nadace i firemní dárci jsou vítaní a rádi zodpovíme i podrobné dotazy — <a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a> k finanční stránce, <a class=\"cb-link\" href=\"mailto:modlitebna@cb6.cz\">modlitebna@cb6.cz</a> k projektu."
+      },
+      {
+        "q": "Proč je modlitebna pro 150 lidí tak drahá?",
+        "a": "Protože pražské předpisy vyžadují, aby byla postavena převážně pod zemí, pod stávající budovou. Výkopy a podzemní stavba stojí několikanásobek toho, co běžný sál. Viz řez výše."
+      },
+      {
+        "q": "Proč dál nepronajímat?",
+        "a": "Hotelový sál stojí každý týden reálné peníze, je dva kilometry od budovy, kde se odehrává zbytek našeho života, a pro čtvrť, kterou chceme oslovit, je neviditelný. Stavba ukončí opakovaný výdaj a postaví sbor tam, kde ho lidé najdou."
+      },
+      {
+        "q": "Můžu si prohlédnout skutečné plány?",
+        "a": "Ano. Fotografie, půdorysy, řezy i celá galerie vizualizací jsou zveřejněné na <a class=\"cb-link\" href=\"https://www.cb6.cz/modlitebna\" target=\"_blank\" rel=\"noopener\">cb6.cz/modlitebna</a>. Dotazy k projektu: <a class=\"cb-link\" href=\"mailto:modlitebna@cb6.cz\">modlitebna@cb6.cz</a>."
+      }
+    ]
+  },
+  "footer": {
+    "org": [
+      "CB Dejvice · Církev bratrská · Evropská, Praha 6",
+      "Sbor Církve bratrské, protestantské církve v České republice."
+    ],
+    "contacts": [
+      "Dotazy k projektu: <strong><a class=\"cb-link\" href=\"mailto:modlitebna@cb6.cz\">modlitebna@cb6.cz</a></strong>",
+      "Dary a potvrzení: <strong><a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a></strong>",
+      "Informace o projektu: <a class=\"cb-link\" href=\"https://www.cb6.cz/modlitebna\" target=\"_blank\" rel=\"noopener\">cb6.cz/modlitebna</a>"
+    ],
+    "fine": [
+      "<em>Na požádání vystavíme potvrzení o daru pro daňové účely.</em>",
+      "<em>Po třiceti letech trvalý domov v Praze 6.</em>"
+    ]
+  }
+}

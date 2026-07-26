@@ -1,0 +1,255 @@
+{
+  "locale": "en",
+  "lang": "en",
+  "url": "https://cb6-en.vercel.app",
+  "meta": {
+    "title": "After thirty years, a permanent home in Prague 6 — CB Dejvice",
+    "description": "CB Dejvice is building a sanctuary on Evropská Street in Prague 6. 54 million CZK project, 14 million already committed by members, 40 million still needed.",
+    "governingPhrase": "After thirty years, a permanent home in Prague 6"
+  },
+  "chrome": {
+    "skip": "Skip to the giving details",
+    "brandAlt": "Církev bratrská Dejvice",
+    "eyebrow": "CB Dejvice · Prague 6",
+    "givingAnchor": "give"
+  },
+  "cta": {
+    "label": "Help build the sanctuary",
+    "href": "#give"
+  },
+  "hero": {
+    "headline": "After thirty years, a permanent home in Prague 6",
+    "subhead": "For more than thirty years our congregation has worshipped in a rented hotel auditorium. We now have permission to build our own sanctuary — and 40,000,000 CZK (USD $1.89 million) left to raise.",
+    "reassurance": "Gifts are made by international bank transfer in CZK. Gifts made directly to CB Dejvice are not tax-deductible in the United States.",
+    "image": {
+      "src": "/img/hero-overlay.jpg",
+      "from": "02_proposed-design-overlay-on-photo.jpg",
+      "width": 3949,
+      "height": 2954,
+      "alt": "The proposed sanctuary — a white perforated stone screen with a pointed-arch entrance — rendered into a photograph of the church building on Evropská Street today."
+    }
+  },
+  "story": {
+    "heading": "A church without a room of its own",
+    "body": [
+      "CB Dejvice was founded in 1995, just after the fall of communism, to bring the hope of the Gospel to Prague 6. Thirty years on, we are a congregation of about 150 members — large by Czech standards — in a district of 109,000 residents and 38,000 university students, many of whom have never set foot in a Protestant church. God has already used this church to plant another congregation in Prague.",
+      "In 2001 we bought a building on Evropská Street with a long-term hope: that one day it could hold everything we do. We have spent the years since renovating it. It is now full every day of the week with youth programmes, discipleship groups, counselling, community events and outreach. Every room is in use."
+    ],
+    "image": {
+      "src": "/img/foyer.jpg",
+      "from": "05_foyer-toward-evropska-street.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alt": "The foyer of the church building, looking out toward Evropská Street past the café and the children’s-programme window."
+    }
+  },
+  "beforeAfter": {
+    "heading": "Every Sunday, we leave",
+    "body": [
+      "Then Sunday comes, and the entire congregation walks two kilometres up the road to a rented communist-era hotel auditorium. We have done this for more than thirty years. It is expensive, it takes a small army to set up and pack down each week, and it means the church our neighbours walk past all week is closed on the one morning they might think to come in.",
+      "In 2025, after more than twenty years of praying about it, we received permission to build a sanctuary on our own property. What once seemed impossible is now a set of drawings and a building permit in preparation."
+    ],
+    "before": {
+      "src": "/img/before.jpg",
+      "from": "01_current-building-exterior-photo.jpg",
+      "width": 3948,
+      "height": 2954,
+      "alt": "The church building on Evropská Street as it stands today.",
+      "tag": "Today"
+    },
+    "after": {
+      "src": "/img/after.jpg",
+      "from": "pohled_01s.jpg (Updated Pictures — supersedes 03_exterior-street-view-render.jpg)",
+      "width": 1280,
+      "height": 720,
+      "alt": "Architect’s render of the new entrance pavilion, with CÍRKEV BRATRSKÁ DEJVICE lettering on the wall.",
+      "tag": "Proposed"
+    }
+  },
+  "cost": {
+    "heading": "Built underground",
+    "body": [
+      "Prague 6's building regulations will not permit a conventional extension on this site. To build at all, the sanctuary has to go primarily below ground, excavated and constructed beneath the existing house. That is far more expensive than adding a hall on the side, and it is the single reason a 150-member church is looking at a 54-million-crown project.",
+      "We are not building something grand. We are paying what this city charges for a room to worship in."
+    ],
+    "image": {
+      "src": "/img/section.jpg",
+      "from": "11_section-drawing-sanctuary-hall.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Section drawing showing the sanctuary hall built below ground, beneath the existing building."
+    },
+    "cta": "Help build the sanctuary"
+  },
+  "money": {
+    "heading": "Where we stand",
+    "table": {
+      "head": [
+        "",
+        "CZK",
+        "USD"
+      ],
+      "rows": [
+        [
+          "<strong>Project cost</strong>",
+          "54,000,000 CZK",
+          "$2.55 million"
+        ],
+        [
+          "<strong>Committed by CB Dejvice members</strong>",
+          "14,000,000 CZK",
+          "$660,000"
+        ],
+        [
+          "<strong>Remaining need</strong>",
+          "40,000,000 CZK",
+          "$1.89 million"
+        ]
+      ]
+    },
+    "body": [
+      "Our own members committed the first 14 million crowns, out of sacrificial giving, before we asked anyone outside the church for anything. The people closest to this project have already committed a quarter of it."
+    ],
+    "credibility": "Application filed 29 June 2024. Valid zoning decision 17 July 2025. On 5 October 2025 our members voted, 100% of those present, to proceed. Full plans, floor plans and renderings are published at <a class=\"cb-link\" href=\"https://www.cb6.cz/modlitebna\" target=\"_blank\" rel=\"noopener\">cb6.cz/modlitebna</a>.",
+    "progress": {
+      "committed": 14000000,
+      "total": 54000000,
+      "pct": 26,
+      "committedLabel": "14,000,000 CZK",
+      "committedCaption": "Committed by members",
+      "totalLabel": "54,000,000 CZK",
+      "totalCaption": "Total project",
+      "ariaLabel": "Sanctuary fund",
+      "ariaText": "14 million koruna committed of a 54 million koruna project — 26 percent"
+    }
+  },
+  "benefits": {
+    "heading": "What the sanctuary makes possible",
+    "items": [
+      {
+        "title": "One roof",
+        "body": "Worship, discipleship and outreach in the same building, instead of split across two addresses two kilometres apart."
+      },
+      {
+        "title": "An open door",
+        "body": "A visible, welcoming public presence on the main road through Prague 6, so neighbours can see that a church is here and that they are welcome inside."
+      },
+      {
+        "title": "Room for who comes next",
+        "body": "Space for families, for students, and for multiple Sunday services as new people explore faith."
+      },
+      {
+        "title": "An end to renting",
+        "body": "Money that currently goes to a hotel every week goes into ministry instead."
+      }
+    ],
+    "image": {
+      "src": "/img/sanctuary.jpg",
+      "from": "A_06.jpg (Updated Pictures — supersedes 12_sanctuary-from-main-entrance.jpg)",
+      "width": 1920,
+      "height": 1080,
+      "alt": "The finished sanctuary: pale oak seating, ribbed grey walls, and a slim cross lit by a skylight."
+    }
+  },
+  "give": {
+    "heading": "Help build the sanctuary",
+    "items": [
+      {
+        "type": "p",
+        "html": "Gifts to the sanctuary project are made by international bank transfer to the church's dedicated sanctuary account at Raiffeisenbank. You will be charged in Czech crowns (CZK)."
+      },
+      {
+        "type": "bank"
+      },
+      {
+        "type": "p",
+        "html": "<strong>Use the payment reference exactly as shown above</strong> — it is what earmarks your gift for the sanctuary rather than for general church funds. Please do not replace it with your name."
+      },
+      {
+        "type": "p",
+        "html": "<strong>If you would like your gift acknowledged,</strong> send your name and email to <strong><a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a></strong> after you transfer, and a person will answer you."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Questions about a gift, an acknowledgement, or a transfer from outside Europe:</strong> write to <strong><a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a></strong>."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Tax — please read before you give:</strong><br />Gifts made directly to CB Dejvice are <strong>not tax-deductible in the United States.</strong> US law only allows a deduction for gifts to organisations formed in the United States, and CB Dejvice is a Czech church. There is no Gift Aid relief for UK donors either. We would rather tell you this plainly than have you find out afterwards. If deductibility matters to you, please write to <strong><a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a></strong> before you give and we will talk it through. Nothing here is tax advice — please consult your own adviser."
+      }
+    ],
+    "bank": {
+      "title": "The sanctuary account",
+      "rows": [
+        {
+          "label": "Bank",
+          "value": "Raiffeisenbank a.s."
+        },
+        {
+          "label": "Account",
+          "value": "1031051032/5500"
+        },
+        {
+          "label": "Payment reference",
+          "value": "5061999",
+          "note": "variable symbol"
+        },
+        {
+          "label": "Message",
+          "value": "Na modlitebnu"
+        }
+      ],
+      "foot": "Sending from outside Europe, or your bank asks for an IBAN or SWIFT code? Write to <a href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a> and a person will send you what your bank needs.",
+      "qr": null
+    },
+    "cta": "Help build the sanctuary"
+  },
+  "faq": {
+    "heading": "Questions people ask",
+    "items": [
+      {
+        "q": "Is my gift tax-deductible in the United States?",
+        "a": "No. A US charitable deduction is only available for gifts to organisations formed in the United States, and CB Dejvice is a Czech church. A gift sent directly to us is not deductible on a US return, and UK donors cannot claim Gift Aid. If this matters to your giving, write to <a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a> before you send anything."
+      },
+      {
+        "q": "What currency am I charged in, and how does the money reach you?",
+        "a": "Gifts arrive as an international bank transfer in Czech crowns (CZK) to the church's sanctuary account, carrying the payment reference shown in the giving section above. Your own bank sets the exchange rate and any transfer fee. Full account details are in the giving section."
+      },
+      {
+        "q": "Who receives the money, and what happens if the project changes?",
+        "a": "Gifts go into the church's dedicated sanctuary account at Raiffeisenbank, held by CB Dejvice and designated for the sanctuary project by the payment reference. Project updates, drawings and permit progress are published at <a class=\"cb-link\" href=\"https://www.cb6.cz/modlitebna\" target=\"_blank\" rel=\"noopener\">cb6.cz/modlitebna</a>. Questions about how funds are handled go to <a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a>."
+      },
+      {
+        "q": "Can our church or foundation give as an institution?",
+        "a": "Yes. Partner churches, foundations and institutional donors are welcome, and we are glad to answer diligence questions directly — <a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a> for the financial side, <a class=\"cb-link\" href=\"mailto:modlitebna@cb6.cz\">modlitebna@cb6.cz</a> for the project."
+      },
+      {
+        "q": "Why is a sanctuary for 150 people so expensive?",
+        "a": "Because Prague 6's regulations require it to be built primarily underground, beneath the existing building. Excavation and underground construction cost several times what a conventional hall would. See the section drawing above."
+      },
+      {
+        "q": "Why not keep renting?",
+        "a": "The hotel auditorium costs real money every week, sits two kilometres from the building where the rest of our life happens, and is invisible to the neighbourhood we are trying to reach. Building ends a recurring cost and puts the church where people can find it."
+      },
+      {
+        "q": "Can I see the actual plans?",
+        "a": "Yes. Photographs, floor plans, section drawings and the full gallery of renderings are published at <a class=\"cb-link\" href=\"https://www.cb6.cz/modlitebna\" target=\"_blank\" rel=\"noopener\">cb6.cz/modlitebna</a>. Project questions go to <a class=\"cb-link\" href=\"mailto:modlitebna@cb6.cz\">modlitebna@cb6.cz</a>."
+      }
+    ]
+  },
+  "footer": {
+    "org": [
+      "CB Dejvice · Církev bratrská · Evropská, Prague 6, Czech Republic",
+      "Part of Církev bratrská (the Brethren Church), a Protestant denomination in the Czech Republic."
+    ],
+    "contacts": [
+      "Project questions: <strong><a class=\"cb-link\" href=\"mailto:modlitebna@cb6.cz\">modlitebna@cb6.cz</a></strong>",
+      "Gifts and receipts: <strong><a class=\"cb-link\" href=\"mailto:hospodar@cb6.cz\">hospodar@cb6.cz</a></strong>",
+      "Project information: <a class=\"cb-link\" href=\"https://www.cb6.cz/modlitebna\" target=\"_blank\" rel=\"noopener\">cb6.cz/modlitebna</a>"
+    ],
+    "fine": [
+      "<em>Gifts made directly to CB Dejvice are not tax-deductible in the United States.</em>",
+      "<em>After thirty years, a permanent home in Prague 6.</em>"
+    ]
+  }
+}
