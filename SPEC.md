@@ -165,8 +165,19 @@ This SPEC is finished once all outputs have been created, have passed QA, and ar
 
 The assistant MUST check its own box below as soon as those criteria are met — do not leave it unchecked once the work is verifiably done, so the loop is not needlessly maintained. The assistant's checkbox ("Assistant designates this SPEC done") is the LOOP KILL CRITERIA: once it is checked, kill the hourly loop (LOOP LOGIC section). The operator's checkbox is checked later by the operator on review and does not gate the loop.
 
-[ ] Assistant designates this SPEC done
+[x] Assistant designates this SPEC done *(2026-07-27 ~01:20Z — all outputs created, QA'd (per-output drift QA + CZ translation passes + visual cohesion eval + fix round), and in place in Deliverables/ and the public repo. Hourly loop killed on this check per LOOP LOGIC. One business decision intentionally left open — see ASSISTANT DECISIONS ⚑1.)*
 [ ] Operator designates this SPEC done
+
+### Output links
+
+- **GitHub repo:** https://github.com/princess-irulan-ai/cb6-prayer-project
+- **Landing page EN (live):** https://cb6-en.vercel.app
+- **Landing page CZ (live):** https://cb6-cz.vercel.app *(permanent home modlitebna.cb6.cz currently serves the church's own site — see ASSISTANT DECISIONS ⚑1)*
+- **Canva brochure EN (public view):** https://canva.link/mc10hcje34oxxxa · [edit](https://www.canva.com/design/DAHQhfpNYsI/edit)
+- **Canva brochure CZ (public view):** https://canva.link/jngf8zz4intnir0 · [edit](https://www.canva.com/design/DAHQhfAT454/edit)
+- **Canva campaign folder:** https://www.canva.com/folder/FAHQhMLyE90
+- **Claude Design project:** claude.ai/design → "CB Dejvice — Modlitebna Campaign"
+- **All file deliverables:** `Deliverables/` in this sprint folder (DOCX emails, 4 brochure PDFs + HTML sources, church-site pages, QRs, copy, reports)
 
 
 
