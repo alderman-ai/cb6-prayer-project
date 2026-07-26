@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 514 118" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-146.895,-35.3626)">
+        <g transform="matrix(75,0,0,75,406.847,92.7628)">
+            <path d="M0.162,-0.7L0.162,-0.57L0.464,-0.57L0.464,-0.298C0.464,-0.186 0.403,-0.116 0.295,-0.116C0.227,-0.116 0.174,-0.148 0.148,-0.202L0.011,-0.165C0.052,-0.062 0.162,0.014 0.295,0.014C0.481,0.014 0.603,-0.1 0.603,-0.304L0.603,-0.7L0.162,-0.7Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(75,0,0,75,406.847,92.7628)">
+        </g>
+        <text x="287.072px" y="92.763px" style="font-family:'Novecentowide-DemiBold', 'Novecento wide';font-weight:650;font-stretch:expanded;font-size:75px;fill:white;">D<tspan x="351.647px 463.472px 522.797px 551.447px 613.697px " y="92.763px 92.763px 92.763px 92.763px 92.763px ">EVICE</tspan></text>
+        <g transform="matrix(40,0,0,40,660.552,148.096)">
+        </g>
+        <text x="287.072px" y="148.096px" style="font-family:'Novecentowide-DemiBold', 'Novecento wide';font-weight:650;font-stretch:expanded;font-size:40px;fill:white;">C<tspan x="316.912px " y="148.096px ">Í</tspan>RKEV BRA<tspan x="527.912px 552.112px 578.112px 602.432px 631.792px " y="148.096px 148.096px 148.096px 148.096px 148.096px ">TRSKÁ</tspan></text>
+    </g>
+    <g transform="matrix(1,0,0,1,1,0)">
+        <path d="M58.173,11.007L98.563,-0.066L98.609,75.278L57.921,86.345L57.702,48.655L83.913,48.519L83.888,30.907L58.166,30.792L58.173,11.007Z" style="fill:white;"/>
+    </g>
+    <g transform="matrix(-1,0,0,1,99.4562,-0.069845)">
+        <path d="M58.173,11.007L98.563,-0.066L98.609,75.278L57.921,86.345L57.702,48.655L83.913,48.519L83.888,30.907L58.166,30.792L58.173,11.007Z" style="fill:white;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,1,0)">
+        <path d="M15.104,99.777L15.068,117.207L83.934,117.225L83.857,99.784L15.104,99.777Z" style="fill:white;"/>
+    </g>
+</svg>
