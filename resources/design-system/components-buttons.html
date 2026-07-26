@@ -1,0 +1,250 @@
+<!-- @dsCard group="Components" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buttons — CB Dejvice Sanctuary</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; }
+  .page { padding: var(--space-2xl) var(--gutter) var(--space-4xl); max-width: var(--container); margin-inline: auto; }
+  .eyebrow { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted); margin: 0 0 var(--space-sm); }
+  h1 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); margin: 0 0 var(--space-md); }
+  h2 { font-size: var(--type-h2-size); font-weight: var(--type-h2-weight); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); margin: var(--space-3xl) 0 var(--space-xs); }
+  h3 { font-size: var(--type-h3-size); font-weight: var(--type-h3-weight); line-height: var(--type-h3-leading); margin: var(--space-xl) 0 var(--space-sm); }
+  .lede { font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-lg); }
+  .note { font-size: var(--type-small-size); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-md); }
+  .rule { height: 2px; width: 56px; background: var(--rule-accent); border: 0; margin: 0 0 var(--space-xl); }
+  code { font-size: 0.8125rem; background: var(--surface-cool); padding: 1px 5px; border-radius: var(--radius-xs); border: 1px solid var(--border); }
+
+  /* =========================================================
+     BUTTONS — copy this block into the landing page verbatim
+     ========================================================= */
+  .cb-btn {
+    --btn-pad-y: 0.875rem;
+    --btn-pad-x: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--btn-pad-y) var(--btn-pad-x);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: var(--weight-semibold);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: background-color var(--duration-base) var(--ease),
+                border-color var(--duration-base) var(--ease),
+                color var(--duration-base) var(--ease),
+                box-shadow var(--duration-base) var(--ease),
+                transform var(--duration-fast) var(--ease);
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .cb-btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .cb-btn:active { transform: translateY(1px); }
+  .cb-btn[aria-disabled="true"], .cb-btn:disabled {
+    pointer-events: none; opacity: 0.45;
+  }
+
+  /* Primary — ink label on gold. 6.1:1. This is THE give button. */
+  .cb-btn--primary {
+    background: var(--color-gold);
+    color: var(--color-ink);
+    border-color: var(--color-gold-deep);   /* survives print + greyscale */
+    box-shadow: var(--shadow-sm);
+  }
+  .cb-btn--primary:hover {
+    background: var(--color-gold-light);
+    border-color: var(--color-gold-deep);
+    box-shadow: var(--shadow-md);
+  }
+  .cb-btn--primary:active { background: var(--color-gold); box-shadow: var(--shadow-xs); }
+
+  /* Primary on ink — gold label on ink. 6.1:1. For the dark footer/trust panel. */
+  .cb-btn--primary-on-ink {
+    background: var(--color-ink);
+    color: var(--color-gold);
+    border-color: var(--color-ink-600);
+  }
+  .cb-btn--primary-on-ink:hover { background: var(--color-ink-800); color: var(--color-gold-light); border-color: var(--color-gold-deep); }
+  .cb-btn--primary-on-ink:active { background: var(--color-ink-900); }
+  .cb-btn--primary-on-ink:focus-visible { box-shadow: var(--focus-ring-on-ink); }
+
+  /* Secondary — ink outline. Sits beside the primary without competing. */
+  .cb-btn--secondary {
+    background: var(--surface);
+    color: var(--color-ink);
+    border-color: var(--color-ink);
+  }
+  .cb-btn--secondary:hover { background: var(--color-ink); color: var(--color-paper); }
+  .cb-btn--secondary:active { background: var(--color-ink-900); }
+
+  /* Ghost — a link that needs a target area. Lowest weight. */
+  .cb-btn--ghost {
+    background: transparent;
+    color: var(--color-ink);
+    border-color: transparent;
+    padding-inline: var(--space-md);
+  }
+  .cb-btn--ghost:hover { background: var(--surface-warm-strong); }
+  .cb-btn--ghost:active { background: var(--color-oak-200); }
+
+  /* Quiet link — inline, with a gold-deep underline that thickens on hover. */
+  .cb-link {
+    color: var(--color-ink);
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+    box-shadow: inset 0 -1px 0 0 var(--color-gold-deep);
+    padding-bottom: 1px;
+    transition: box-shadow var(--duration-base) var(--ease);
+  }
+  .cb-link:hover { box-shadow: inset 0 -3px 0 0 var(--color-gold); }
+  .cb-link:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-xs); }
+
+  /* Sizes */
+  .cb-btn--lg { --btn-pad-y: 1.0625rem; --btn-pad-x: 2.25rem; font-size: 1.0625rem; }
+  .cb-btn--sm { --btn-pad-y: 0.625rem; --btn-pad-x: 1.25rem; font-size: 0.9375rem; }
+  .cb-btn--block { display: flex; width: 100%; }
+
+  /* Optional arch mark inside the primary CTA. Use once per page, in the hero only. */
+  .cb-btn__arch { flex: none; margin-inline-start: -0.25rem; }
+
+  /* =========================================================
+     preview chrome
+     ========================================================= */
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center; margin: var(--space-md) 0 0; }
+  .panel { padding: var(--space-xl); border-radius: var(--radius-md); border: 1px solid var(--border); margin-top: var(--space-md); }
+  .panel--ink { background: var(--surface-ink); border-color: var(--color-ink-600); }
+  .panel--warm { background: var(--surface-warm-strong); border-color: var(--border-warm); }
+  .panel--ink .panel__cap { color: rgba(255,255,255,0.68); }
+  .panel__cap { font-size: var(--type-small-size); color: var(--text-muted); margin: 0 0 var(--space-md); }
+
+  .states { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-lg); margin-top: var(--space-md); }
+  .state { text-align: left; }
+  .state__label { font-size: 0.6875rem; font-weight: var(--weight-semibold); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 var(--space-xs); }
+  /* forced-state clones so hover/active/focus are visible without a pointer */
+  .is-hover.cb-btn--primary { background: var(--color-gold-light); box-shadow: var(--shadow-md); }
+  .is-active.cb-btn--primary { background: var(--color-gold); box-shadow: var(--shadow-xs); transform: translateY(1px); }
+  .is-focus.cb-btn--primary { box-shadow: var(--focus-ring); }
+  .is-hover.cb-btn--secondary { background: var(--color-ink); color: var(--color-paper); }
+  .is-focus.cb-btn--secondary { box-shadow: var(--focus-ring); }
+  .is-hover.cb-btn--ghost { background: var(--surface-warm-strong); }
+  .is-hover.cb-btn--primary-on-ink { background: var(--color-ink-800); color: var(--color-gold-light); border-color: var(--color-gold-deep); }
+
+  .mobile { max-width: 360px; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-lg); margin-top: var(--space-md); }
+
+  .dont { border-left: 3px solid var(--color-ink); background: var(--surface-cool); border-radius: var(--radius-sm); padding: var(--space-lg); margin-top: var(--space-xl); }
+  .dont h3 { margin: 0 0 var(--space-xs); font-size: var(--type-h3-size); }
+  .dont ul { margin: 0; padding-left: 1.1em; }
+  .dont li { font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2xs); }
+
+  .voice { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-md); margin-top: var(--space-md); }
+  .voice div { border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-md) var(--space-lg); }
+  .voice p { margin: 0; font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); }
+  .voice p:first-child { font-size: 1rem; font-weight: var(--weight-semibold); color: var(--text); margin-bottom: var(--space-2xs); }
+</style>
+</head>
+<body class="cb">
+<main class="page">
+
+  <p class="eyebrow">Components</p>
+  <h1>Buttons</h1>
+  <hr class="rule">
+  <p class="lede">One gold button per screen, and gold is used for nothing else. Everything beside it is ink outline or a quiet link. A pill radius keeps the CTA from reading as a software product; the gold-deep border means it still holds its shape in a black-and-white print of the brochure.</p>
+
+  <h2>Primary — gold fill, ink label</h2>
+  <p class="note">The give button. <code>.cb-btn .cb-btn--primary</code> · ink on gold is 6.1:1, AA. Use <code>--lg</code> in the hero, default size everywhere else.</p>
+  <div class="row">
+    <a href="#" class="cb-btn cb-btn--primary cb-btn--lg">
+      <svg class="cb-btn__arch" width="12" height="16" viewBox="0 0 24 32" fill="none" aria-hidden="true">
+        <path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#264653" stroke-width="2.6" stroke-linecap="round"/>
+      </svg>
+      Give to the Sanctuary
+    </a>
+    <a href="#" class="cb-btn cb-btn--primary">Give to the Sanctuary</a>
+    <a href="#" class="cb-btn cb-btn--primary cb-btn--sm">Give to the Sanctuary</a>
+  </div>
+
+  <h3>States</h3>
+  <div class="states">
+    <div class="state"><p class="state__label">Rest</p><a href="#" class="cb-btn cb-btn--primary">Give to the Sanctuary</a></div>
+    <div class="state"><p class="state__label">Hover</p><span class="cb-btn cb-btn--primary is-hover">Give to the Sanctuary</span></div>
+    <div class="state"><p class="state__label">Active</p><span class="cb-btn cb-btn--primary is-active">Give to the Sanctuary</span></div>
+    <div class="state"><p class="state__label">Focus (keyboard)</p><span class="cb-btn cb-btn--primary is-focus">Give to the Sanctuary</span></div>
+    <div class="state"><p class="state__label">Disabled</p><span class="cb-btn cb-btn--primary" aria-disabled="true">Give to the Sanctuary</span></div>
+  </div>
+
+  <h2>Primary on ink — gold label, ink fill</h2>
+  <p class="note">For the dark trust panel and the footer, where a gold-filled button would blow out. <code>.cb-btn--primary-on-ink</code> · gold on ink is also 6.1:1. Focus ring inverts to gold so it stays visible.</p>
+  <div class="panel panel--ink">
+    <p class="panel__cap">On <code style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#fff">--color-ink</code></p>
+    <div class="row">
+      <a href="#" class="cb-btn cb-btn--primary-on-ink cb-btn--lg">Give to the Sanctuary</a>
+      <span class="cb-btn cb-btn--primary-on-ink is-hover">Give to the Sanctuary</span>
+      <a href="#" class="cb-btn cb-btn--primary" style="border-color:var(--color-gold-light)">Give to the Sanctuary</a>
+    </div>
+    <p class="panel__cap" style="margin:var(--space-md) 0 0">A gold fill is still permitted on ink — it is the loudest thing the system can do. Reserve it for a single closing ask.</p>
+  </div>
+
+  <h2>Secondary &amp; ghost</h2>
+  <p class="note">Secondary is an ink outline that inverts on hover: for "Read the project detail" or "See the plans". Ghost is for tertiary actions that still need a tap target — language switch, "Other ways to give".</p>
+  <div class="row">
+    <a href="#" class="cb-btn cb-btn--secondary">Read the project detail</a>
+    <span class="cb-btn cb-btn--secondary is-hover">Read the project detail</span>
+    <a href="#" class="cb-btn cb-btn--ghost">Other ways to give</a>
+    <span class="cb-btn cb-btn--ghost is-hover">Other ways to give</span>
+  </div>
+
+  <h3>Pairing</h3>
+  <p class="note">One primary, one secondary. Never two golds.</p>
+  <div class="panel panel--warm">
+    <div class="row">
+      <a href="#" class="cb-btn cb-btn--primary cb-btn--lg">Give to the Sanctuary</a>
+      <a href="#" class="cb-btn cb-btn--secondary cb-btn--lg">Read the project detail</a>
+    </div>
+  </div>
+
+  <h2>Inline link</h2>
+  <p class="note">A gold-deep underline that thickens on hover. Use inside body copy instead of a fourth button.</p>
+  <p style="font-size:var(--type-body-lg-size); line-height:var(--type-body-lg-leading); max-width:var(--measure);">
+    The full plans, floor drawings and permit timeline are published on the church's own site at
+    <a href="#" class="cb-link">cb6.cz/modlitebna</a>. Questions about the project go to
+    <a href="#" class="cb-link">modlitebna@cb6.cz</a>; tax receipts to <a href="#" class="cb-link">hospodar@cb6.cz</a>.
+  </p>
+
+  <h2>Mobile</h2>
+  <p class="note">Full-width, 48px minimum tap height. The primary stacks above the secondary — a phone reader should not have to choose left or right.</p>
+  <div class="mobile">
+    <a href="#" class="cb-btn cb-btn--primary cb-btn--lg cb-btn--block">Give to the Sanctuary</a>
+    <a href="#" class="cb-btn cb-btn--secondary cb-btn--block" style="margin-top:var(--space-sm)">Read the project detail</a>
+  </div>
+
+  <h2>Label voice</h2>
+  <p class="note">The button names the act, in the church's own words. It does not sell, and it does not hurry.</p>
+  <div class="voice">
+    <div><p>Give to the Sanctuary</p><p>Default. Names the specific thing being built.</p></div>
+    <div><p>Give monthly</p><p>For the pledge option. Capital campaigns run on multi-year commitments.</p></div>
+    <div><p>Read the project detail</p><p>Secondary. Sends the reader to cb6.cz/modlitebna.</p></div>
+    <div><p>Přispět na modlitebnu</p><p>Czech primary. Same act, same weight.</p></div>
+  </div>
+
+  <div class="dont">
+    <h3>Do not</h3>
+    <ul>
+      <li>Do not put more than three in-page buttons on the landing page (hero, giving tiers, after the trust block), plus the persistent header button. More reads as pressure.</li>
+      <li>Do not write "Donate now", "Act fast", or anything with a deadline attached. There is no countdown on this project.</li>
+      <li>Do not remove the <code>--color-gold-deep</code> border on the primary. It is what keeps the button visible on a white page in greyscale print.</li>
+      <li>Do not use gold for a secondary or ghost button. Gold means one thing on this page.</li>
+      <li>Do not animate the button beyond the colour transition and the 1px press. No pulse, no glow, no scale.</li>
+    </ul>
+  </div>
+
+</main>
+</body>
+</html>

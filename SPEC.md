@@ -32,12 +32,13 @@ found in Resources/
 
 * **CB Dejvice one-pager text.md:** handed over to me as a rough draft written by a non professional. Treat information as accurate and use information
 * **Church fundraising one-pager.eml:** handed over to me as a rough draft written by a non professional. Treat information as accurate and use information
+* **Michael Trezzi email 2026-07-26 — updated pictures + domain.jpg** *(added mid-run by operator)*: client follow-up email. Two facts: (1) most up-to-date pictures live in a shared Drive folder — downloaded to **Updated Pictures/** (17 files + `PICTURES NOTE.md` inventory; the sal_10x renders are newer and higher-res than the website set and are preferred for hero/print use; two AI-generated files flagged do-not-use); (2) **the web will reside at `modlitebna.cb6.cz`** (see OUTPUTS note).
 
 ## MODELS
 
 Orchestrator will be Fable 5 | high
 Subagents will be Opus 5 | medium
-Claude in Chrome activities will be done in 
+Claude in Chrome activities will be done in Sonnet 5 | medium
 
 ## LANGUAGES
 
@@ -49,7 +50,7 @@ Pull branding straight from the church's website: https://www.cb6.cz/
 
 Save all brand assets in Resources/ and also download their font if not standardly available in all parts of the TECH STACK section further down.
 
-Save images of the proposed church design from: https://www.cb6.cz/modlitebna to be used as needed.
+Save images of the proposed church design from: https://www.cb6.cz/modlitebna to be used as needed. *(Retroactive update 2026-07-26: client subsequently shared a Drive folder of newer, higher-res renders — saved to `Resources/Updated Pictures/`; these supersede the website set where they overlap. See `PICTURES NOTE.md` there.)*
 
 Create a design system in both Claude Design and in Canva. For Canva attempt to do so via MCP, but if you can't, do it in Claude in Chrome.
 
@@ -88,6 +89,8 @@ Make sure all INITIAL RESEARCH subagents have finished before beginning to creat
 - (???) A single landing page based off all relevant Resources/ and Research/ written in whatever frontend language the church's website uses. 
   
   NOTE: it is unclear if the landing page will be hosted as a subdomain of the main site or as a stand alone page via vercel. If the latter, I do not yet have the domain yet, so it should be prepared in vercel and I will manually move it to the custom domain IFF needed. Title the vercel versions: cb6-en & cb6-cz
+  
+  *(RESOLVED mid-run 2026-07-26, per Michael Trezzi email: the web will reside at **`modlitebna.cb6.cz`** — a subdomain of the main site. Plan: Vercel deploys `cb6-en`/`cb6-cz` are built and deployed as specified and serve as the working preview; printed/PDF materials carry the permanent URL where safe — see ASSISTANT DECISIONS for the QR-target call.)*
 
 ## FUTURE HITL COPY AND DESIGN REVISION
 
@@ -123,6 +126,9 @@ Asked by the assistant during the pre-flight spec review (2026-07-26), answered 
 
 **Q7 — Google Docs upload.** (Assistant flagged the Chrome-automation upload into Google Docs as a residual risk.)
 **A:** No Google Docs upload needed. Put the email DOCX files in Deliverables/ and the operator will add them to Google Docs manually.
+
+**Q8 — Mid-run operator addendum (2026-07-26 ~23:05, screenshot in Resources/).** Client email from Michael Trezzi: updated pictures in a shared Drive folder, and the web will reside at `modlitebna.cb6.cz`.
+**Propagated:** pictures downloaded to `Resources/Updated Pictures/` (inventoried in `PICTURES NOTE.md`; sal_10x renders now preferred for heroes/print; two AI-generated files excluded); INITIAL RESOURCES + BRANDING AND MEDIA + OUTPUTS sections updated retroactively; landing-page copy already uses `{{LANDING_URL}}` placeholders, resolved at build time to the permanent domain (QR-target details in ASSISTANT DECISIONS).
 
 ## ASSISTANT DECISIONS (written by assistant)
 

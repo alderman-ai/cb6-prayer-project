@@ -1,0 +1,336 @@
+<!-- @dsCard group="Components" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cards — CB Dejvice Sanctuary</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; }
+  .page { padding: var(--space-2xl) var(--gutter) var(--space-4xl); max-width: var(--container); margin-inline: auto; }
+  .eyebrow { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted); margin: 0 0 var(--space-sm); }
+  h1 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); margin: 0 0 var(--space-md); }
+  h2 { font-size: var(--type-h2-size); font-weight: var(--type-h2-weight); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); margin: var(--space-3xl) 0 var(--space-xs); }
+  .lede { font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-lg); }
+  .note { font-size: var(--type-small-size); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-md); }
+  .rule { height: 2px; width: 56px; background: var(--rule-accent); border: 0; margin: 0 0 var(--space-xl); }
+  code { font-size: 0.8125rem; background: var(--surface-cool); padding: 1px 5px; border-radius: var(--radius-xs); border: 1px solid var(--border); }
+
+  /* =========================================================
+     CARD — base
+     ========================================================= */
+  .cb-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+  }
+  .cb-card__eyebrow {
+    display: flex; align-items: center; gap: var(--space-xs);
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 var(--space-sm);
+  }
+  .cb-card__title {
+    font-size: var(--type-h3-size); font-weight: var(--type-h3-weight);
+    line-height: var(--type-h3-leading); letter-spacing: var(--type-h3-tracking);
+    margin: 0 0 var(--space-xs);
+  }
+  .cb-card__body { font-size: var(--type-body-size); line-height: var(--type-body-leading); color: var(--text-muted); margin: 0; }
+  .cb-card__body + .cb-card__body { margin-top: var(--space-sm); }
+
+  /* =========================================================
+     GIVING DETAILS — bank transfer + QR. The transactional card.
+     Cream ground, warm border: this is the one card that is about money,
+     and it should feel like a note handed over rather than a form.
+     ========================================================= */
+  .cb-give {
+    background: var(--surface-warm-strong);
+    border: 1px solid var(--border-warm);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-xl);
+    align-items: start;
+    max-width: 42rem;
+  }
+  @media (max-width: 620px) {
+    .cb-give { grid-template-columns: 1fr; gap: var(--space-lg); }
+    .cb-give__qr { justify-self: start; }
+  }
+  .cb-give__head { margin: 0 0 var(--space-lg); }
+  .cb-give__eyebrow {
+    display: flex; align-items: center; gap: var(--space-xs);
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 var(--space-xs);
+  }
+  .cb-give__title { font-size: var(--type-h3-size); font-weight: var(--type-h3-weight); margin: 0; }
+
+  .cb-give__rows { margin: 0; }
+  .cb-give__row {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--border-warm);
+    align-items: baseline;
+  }
+  .cb-give__row:last-child { border-bottom: 1px solid var(--border-warm); }
+  @media (max-width: 460px) { .cb-give__row { grid-template-columns: 1fr; gap: 2px; } }
+  .cb-give__label {
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--text-muted); margin: 0;
+  }
+  .cb-give__value {
+    font-size: 1.0625rem; font-weight: var(--weight-semibold);
+    font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
+    color: var(--text); margin: 0; word-break: break-word;
+  }
+  .cb-give__value small { display: block; font-size: var(--type-small-size); font-weight: var(--weight-regular); color: var(--text-muted); letter-spacing: 0; margin-top: 2px; }
+
+  .cb-give__qr { text-align: center; }
+  .cb-give__qr-frame {
+    inline-size: 148px; block-size: 148px;
+    background: var(--color-paper);
+    border: 1px solid var(--border-warm);
+    border-radius: var(--radius-sm);
+    padding: var(--space-xs);
+    display: grid; place-items: center;
+  }
+  .cb-give__qr-frame img { inline-size: 100%; block-size: 100%; display: block; }
+  .cb-give__qr-cap {
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--text-muted); margin: var(--space-sm) 0 0;
+  }
+  .cb-give__foot { grid-column: 1 / -1; margin: 0; font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); }
+  .cb-give__foot a { color: var(--text); font-weight: var(--weight-semibold); text-decoration: none; box-shadow: inset 0 -1px 0 0 var(--color-gold-deep); }
+  .cb-give__foot a:hover { box-shadow: inset 0 -3px 0 0 var(--color-gold); }
+
+  /* QR placeholder for preview */
+  .qr-placeholder {
+    inline-size: 100%; block-size: 100%;
+    background:
+      repeating-conic-gradient(var(--color-ink) 0% 25%, var(--color-paper) 0% 50%) 0 0 / 12px 12px;
+    opacity: 0.85;
+  }
+
+  /* =========================================================
+     INFO CARD — grid unit for "what the building does", giving methods
+     ========================================================= */
+  .cb-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md); }
+  .cb-card--info { display: flex; flex-direction: column; }
+  .cb-card--info .cb-card__mark { margin-bottom: var(--space-md); }
+  .cb-card--quiet { background: var(--surface-warm); border-color: var(--border); }
+  .cb-card--linked { transition: border-color var(--duration-base) var(--ease), box-shadow var(--duration-base) var(--ease); text-decoration: none; color: inherit; display: block; }
+  .cb-card--linked:hover { border-color: var(--color-gold-deep); box-shadow: var(--shadow-md); }
+  .cb-card--linked:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .cb-card__more {
+    margin: var(--space-md) 0 0; font-size: var(--type-small-size);
+    font-weight: var(--weight-semibold); color: var(--text);
+  }
+
+  /* stat card — a single number with a small label */
+  .cb-card--stat { background: var(--surface-cool); border-color: var(--border); }
+  .cb-card__figure {
+    font-size: var(--type-figure-size); font-weight: var(--type-figure-weight);
+    line-height: var(--type-figure-leading); letter-spacing: var(--type-figure-tracking);
+    font-variant-numeric: tabular-nums; margin: 0 0 var(--space-xs);
+  }
+
+  /* =========================================================
+     QUOTE / VERSE — the only place italic Raleway appears at size
+     The left rule is the ribbing motif, cropped to a single column.
+     ========================================================= */
+  .cb-quote {
+    position: relative;
+    background: var(--surface-warm-strong);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl) var(--space-xl) var(--space-xl) calc(var(--space-xl) + 14px);
+    max-width: 40rem;
+    overflow: hidden;
+  }
+  .cb-quote::before {
+    content: "";
+    position: absolute;
+    inset-block: 0; inset-inline-start: 0;
+    inline-size: 6px;
+    background-image: var(--pattern-ribbing-warm);
+    background-color: var(--color-oak-200);
+  }
+  .cb-quote__text {
+    font-size: clamp(1.125rem, 1.02rem + 0.42vw, 1.3125rem);
+    font-style: italic;
+    font-weight: var(--weight-regular);
+    line-height: 1.58;
+    letter-spacing: -0.004em;
+    color: var(--text);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .cb-quote__cite {
+    display: block;
+    font-style: normal;
+    font-size: var(--type-eyebrow-size);
+    font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: var(--space-md);
+  }
+  .cb-quote--plain { background: transparent; padding-block: 0; }
+  .cb-quote--plain::before { background-color: transparent; }
+  .cb-quote--on-ink { background: var(--color-ink); }
+  .cb-quote--on-ink .cb-quote__text { color: rgba(255,255,255,0.95); }
+  .cb-quote--on-ink .cb-quote__cite { color: var(--color-gold); }
+  .cb-quote--on-ink::before { background-color: var(--color-ink-600); background-image: repeating-linear-gradient(90deg, rgba(233,196,106,0.6) 0 1px, transparent 1px 6px); }
+
+  /* =========================================================
+     preview chrome
+     ========================================================= */
+  .stack > * + * { margin-top: var(--space-lg); }
+  .gap { margin-top: var(--space-md); }
+  .openq { border: 1px dashed var(--border-strong); border-radius: var(--radius-md); padding: var(--space-md) var(--space-lg); margin-top: var(--space-lg); }
+  .openq p { margin: 0; font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); }
+  .openq b { color: var(--text); }
+  .dont { border-left: 3px solid var(--color-ink); background: var(--surface-cool); border-radius: var(--radius-sm); padding: var(--space-lg); margin-top: var(--space-xl); }
+  .dont h3 { margin: 0 0 var(--space-xs); font-size: var(--type-h3-size); }
+  .dont ul { margin: 0; padding-left: 1.1em; }
+  .dont li { font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2xs); }
+</style>
+</head>
+<body class="cb">
+<main class="page">
+
+  <p class="eyebrow">Components</p>
+  <h1>Cards</h1>
+  <hr class="rule">
+  <p class="lede">Three card types and nothing else: the giving-details card that carries the money, the info card that carries a fact, and the verse block. All of them are flat, hairline-bordered and quiet — a shadow appears only when a card is a link and the pointer is on it.</p>
+
+  <h2>Giving details</h2>
+  <p class="note">The Czech transfer route. Account number, variable symbol and message are the exact values published on cb6.cz/modlitebna — reproduce them character for character, and set the value column in tabular numerals so the account number is easy to copy by eye. The QR is generated by the Paylibo endpoint the church already uses.</p>
+
+  <div class="cb-give">
+    <div>
+      <div class="cb-give__head">
+        <p class="cb-give__eyebrow">
+          <svg width="10" height="13" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="3" stroke-linecap="round"/></svg>
+          Give from the Czech Republic
+        </p>
+        <p class="cb-give__title">Bank transfer to the sanctuary fund</p>
+      </div>
+
+      <div class="cb-give__rows">
+        <div class="cb-give__row">
+          <p class="cb-give__label">Account</p>
+          <p class="cb-give__value">1031051032 / 5500</p>
+        </div>
+        <div class="cb-give__row">
+          <p class="cb-give__label">Variable symbol</p>
+          <p class="cb-give__value">5061999</p>
+        </div>
+        <div class="cb-give__row">
+          <p class="cb-give__label">Message</p>
+          <p class="cb-give__value">Na modlitebnu<small>"For the sanctuary"</small></p>
+        </div>
+        <div class="cb-give__row">
+          <p class="cb-give__label">Account holder</p>
+          <p class="cb-give__value">Církev bratrská, sbor Praha 6 — Dejvice</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cb-give__qr">
+      <div class="cb-give__qr-frame">
+        <!-- Live source (Czech QR payment, pre-filled with account, VS and message):
+             https://api.paylibo.com/paylibo/generator/czech/image?compress=false&size=440&accountNumber=1031051032&bankCode=5500&currency=CZK&vs=5061999&message=Na+modlitebnu
+             Download once and embed locally for the PDF — do not hot-link in print. -->
+        <div class="qr-placeholder" role="img" aria-label="Czech QR payment code for the sanctuary fund"></div>
+      </div>
+      <p class="cb-give__qr-cap">Scan to pay</p>
+    </div>
+
+    <p class="cb-give__foot">
+      For a tax receipt, write to <a href="mailto:hospodar@cb6.cz">hospodar@cb6.cz</a>.
+      Questions about the building itself go to <a href="mailto:modlitebna@cb6.cz">modlitebna@cb6.cz</a>.
+    </p>
+  </div>
+
+  <div class="openq">
+    <p><b>Unresolved, and it must be resolved before this card ships to US readers.</b> There is no US giving route in the source material. A US donor needs to know, above the fold, whether the gift is tax-deductible and through whom (a 501(c)(3) fiscal sponsor or a partner mission agency). Until the operator confirms, build a second giving card for the US route with the same layout — <i>Send a gift from the United States</i> — and leave its rows as explicit blanks rather than guessing. Do not present the Czech account as the US path.</p>
+  </div>
+
+  <h2>Info cards</h2>
+  <p class="note">The scan layer. One fact per card, a heading you could read alone and still understand. Cards that link get the gold-deep border on hover; cards that do not, stay flat.</p>
+  <div class="cb-cards gap">
+
+    <div class="cb-card cb-card--info">
+      <svg class="cb-card__mark" width="16" height="21" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <p class="cb-card__title">A visible address</p>
+      <p class="cb-card__body">A street frontage on Evropská with the church's name on the wall — after thirty years of meeting in a rented hotel auditorium two kilometres away.</p>
+    </div>
+
+    <div class="cb-card cb-card--info">
+      <svg class="cb-card__mark" width="16" height="21" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <p class="cb-card__title">Room for families and students</p>
+      <p class="cb-card__body">A café open onto the street, a children's programme room, and a hall that seats the whole congregation in one service instead of two.</p>
+    </div>
+
+    <a href="#" class="cb-card cb-card--info cb-card--linked">
+      <svg class="cb-card__mark" width="16" height="21" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <p class="cb-card__title">The full plans</p>
+      <p class="cb-card__body">Floor drawings, the section through the site, and the permit timeline, published by the church.</p>
+      <p class="cb-card__more">cb6.cz/modlitebna →</p>
+    </a>
+
+  </div>
+
+  <h2>Stat cards</h2>
+  <p class="note">Use sparingly — three at most, and only where the number genuinely does the arguing. Figures are ink, never gold.</p>
+  <div class="cb-cards gap">
+    <div class="cb-card cb-card--stat"><p class="cb-card__figure">109,000</p><p class="cb-card__body">residents in Prague 6</p></div>
+    <div class="cb-card cb-card--stat"><p class="cb-card__figure">38,000</p><p class="cb-card__body">university students in the district</p></div>
+    <div class="cb-card cb-card--stat"><p class="cb-card__figure">30 years</p><p class="cb-card__body">of renting a hall two kilometres away</p></div>
+  </div>
+
+  <h2>Verse block</h2>
+  <p class="note">Italic Raleway, one ribbed rule on the leading edge. One verse per artefact. It sits before the ask, never as the ask.</p>
+
+  <div class="stack gap">
+    <blockquote class="cb-quote">
+      <p class="cb-quote__text">But who am I, and who are my people, that we should be able to give as generously as this? Everything comes from you, and we have given you only what comes from your hand.
+        <cite class="cb-quote__cite">1 Chronicles 29:14</cite>
+      </p>
+    </blockquote>
+
+    <blockquote class="cb-quote" lang="cs">
+      <p class="cb-quote__text">Vždyť co jsem já a co je můj lid, že máme možnost takto dobrovolně dávat? Od tebe pochází všechno, a co jsme ti dali, pochází z tvé ruky.
+        <cite class="cb-quote__cite">1. Paralipomenon 29:14</cite>
+      </p>
+    </blockquote>
+
+    <blockquote class="cb-quote cb-quote--on-ink">
+      <p class="cb-quote__text">On ink, for the closing panel. The rule picks up gold; the citation becomes the only gold text on the page, and it is legible because the ground is dark.
+        <cite class="cb-quote__cite">On-ink variant</cite>
+      </p>
+    </blockquote>
+  </div>
+
+  <div class="dont">
+    <h3>Do not</h3>
+    <ul>
+      <li>Do not put a drop shadow on a card at rest. Shadow signals "this is liftable" — only linked cards lift, and only on hover.</li>
+      <li>Do not paraphrase the bank details or reformat the variable symbol. A wrong digit is a lost gift.</li>
+      <li>Do not hot-link the Paylibo QR image inside the PDF. Download it once and embed it.</li>
+      <li>Do not stack more than one verse per artefact, and never use a verse as a headline or a button label.</li>
+      <li>Do not add an icon set. The arch mark is the only pictogram in this system, because it is the actual door of the building.</li>
+    </ul>
+  </div>
+
+</main>
+</body>
+</html>

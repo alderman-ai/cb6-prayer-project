@@ -1,0 +1,301 @@
+<!-- @dsCard group="Blocks" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero — CB Dejvice Sanctuary</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; }
+  .page { padding: var(--space-2xl) var(--gutter) var(--space-4xl); max-width: var(--container); margin-inline: auto; }
+  .eyebrow { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted); margin: 0 0 var(--space-sm); }
+  h1.pagetitle { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); margin: 0 0 var(--space-md); }
+  h2.sect { font-size: var(--type-h2-size); font-weight: var(--type-h2-weight); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); margin: var(--space-3xl) 0 var(--space-xs); }
+  .lede { font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-lg); }
+  .note { font-size: var(--type-small-size); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-md); }
+  .rule { height: 2px; width: 56px; background: var(--rule-accent); border: 0; margin: 0 0 var(--space-xl); }
+  code { font-size: 0.8125rem; background: var(--surface-cool); padding: 1px 5px; border-radius: var(--radius-xs); border: 1px solid var(--border); }
+
+  /* ---------- shared button (from components-buttons.html) ---------- */
+  .cb-btn { display:inline-flex; align-items:center; justify-content:center; gap:var(--space-sm);
+    padding:0.875rem 1.75rem; font-family:var(--font-sans); font-size:1rem; font-weight:var(--weight-semibold);
+    line-height:1.2; letter-spacing:0.01em; text-decoration:none; border:1px solid transparent;
+    border-radius:var(--radius-pill); cursor:pointer;
+    transition: background-color var(--duration-base) var(--ease), color var(--duration-base) var(--ease),
+                border-color var(--duration-base) var(--ease), box-shadow var(--duration-base) var(--ease),
+                transform var(--duration-fast) var(--ease); }
+  .cb-btn:focus-visible { outline:none; box-shadow:var(--focus-ring); }
+  .cb-btn:active { transform: translateY(1px); }
+  .cb-btn--primary { background:var(--color-gold); color:var(--color-ink); border-color:var(--color-gold-deep); box-shadow:var(--shadow-sm); }
+  .cb-btn--primary:hover { background:var(--color-gold-light); box-shadow:var(--shadow-md); }
+  .cb-btn--secondary { background:var(--surface); color:var(--color-ink); border-color:var(--color-ink); }
+  .cb-btn--secondary:hover { background:var(--color-ink); color:var(--color-paper); }
+  .cb-btn--lg { padding:1.0625rem 2.25rem; font-size:1.0625rem; }
+  .cb-btn--sm { padding:0.625rem 1.25rem; font-size:0.9375rem; }
+  .cb-btn--block { display:flex; width:100%; }
+
+  /* =========================================================
+     HEADER — persistent, with the Give button always visible.
+     Note the logo plate: logo-var1.png is a white wordmark and is
+     invisible on paper, so it is housed in an ink plate. That is the
+     brand-correct fix until the client supplies a light-ground logo.
+     ========================================================= */
+  .cb-header {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
+    padding: var(--space-sm) var(--gutter);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(1.4) blur(8px);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .cb-header__brand { display: flex; align-items: center; gap: var(--space-sm); text-decoration: none; }
+  .cb-logo-plate {
+    background: var(--color-ink);
+    border-radius: var(--radius-sm);
+    padding: 9px 14px;
+    display: grid; place-items: center;
+  }
+  .cb-logo-plate img { display: block; height: 22px; width: auto; }
+  /* preview stand-in for logo-var1.png */
+  .cb-logo-plate .stand-in {
+    height: 22px; display: flex; align-items: center; gap: 8px;
+    color: #fff; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;
+  }
+  .cb-logo-plate .stand-in i { display:block; width:14px; height:14px; border-radius:2px; background:var(--color-gold); }
+  .cb-header__right { display: flex; align-items: center; gap: var(--space-md); }
+  .cb-header__lang { font-size: var(--type-small-size); font-weight: var(--weight-semibold); color: var(--text-muted); text-decoration: none; }
+  .cb-header__lang:hover { color: var(--text); }
+
+  /* =========================================================
+     HERO
+     Two columns on desktop: the ask on the left, the rendering on the
+     right. The image is arched at the top — the pointed-arch glazing cut
+     into the perforated stone screen is the building's one gesture, and
+     it is the only place a big radius is allowed.
+     ========================================================= */
+  .cb-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+    align-items: center;
+    padding: clamp(2.5rem, 1.5rem + 4vw, 5.5rem) var(--gutter);
+    max-width: var(--container);
+    margin-inline: auto;
+  }
+  @media (max-width: 860px) {
+    .cb-hero { grid-template-columns: 1fr; gap: var(--space-xl); padding-top: var(--space-xl); }
+    .cb-hero__media { order: -1; }
+  }
+
+  .cb-hero__eyebrow {
+    display: flex; align-items: center; gap: var(--space-xs);
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 var(--space-md);
+  }
+  .cb-hero__title {
+    font-size: var(--type-display-size);
+    font-weight: var(--type-display-weight);
+    line-height: var(--type-display-leading);
+    letter-spacing: var(--type-display-tracking);
+    text-wrap: balance;
+    margin: 0 0 var(--space-md);
+    max-width: 16ch;
+  }
+  .cb-hero__sub {
+    font-size: var(--type-body-lg-size);
+    line-height: var(--type-body-lg-leading);
+    color: var(--text-muted);
+    max-width: var(--measure-tight);
+    margin: 0 0 var(--space-xl);
+    text-wrap: pretty;
+  }
+  .cb-hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); align-items: center; }
+  .cb-hero__reassure { margin: var(--space-lg) 0 0; font-size: var(--type-small-size); color: var(--text-faint); }
+
+  /* --- media: the arch --- */
+  .cb-hero__media { position: relative; }
+  .cb-hero__frame {
+    border-radius: var(--radius-arch);
+    overflow: hidden;
+    background: var(--surface-cool);
+    aspect-ratio: 16 / 10;
+    display: grid; place-items: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .cb-hero__frame img { inline-size: 100%; block-size: 100%; object-fit: cover; display: block; }
+  .cb-hero__caption {
+    margin: var(--space-sm) 0 0;
+    font-size: var(--type-small-size);
+    color: var(--text-faint);
+  }
+  /* the perforation band: one per artefact, tucked beneath the image */
+  .cb-hero__perf {
+    position: absolute;
+    inset-inline: 8%; bottom: -14px;
+    block-size: 28px;
+    background-image: var(--pattern-perforation);
+    background-size: var(--pattern-perforation-size);
+    background-color: transparent;
+    z-index: -1;
+  }
+
+  /* image placeholder used in this preview only */
+  .ph {
+    inline-size: 100%; block-size: 100%;
+    background: var(--surface-cool);
+    display: grid; place-items: center; text-align: center;
+    padding: var(--space-lg);
+    background-image: var(--pattern-ribbing);
+    background-size: auto;
+  }
+  .ph__inner { background: rgba(255,255,255,0.88); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-sm); border: 1px solid var(--border-strong); max-width: 90%; }
+  .ph__file { font-size: 0.9375rem; font-weight: var(--weight-semibold); margin: 0 0 4px; word-break: break-all; }
+  .ph__meta { font-size: 0.75rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+  /* =========================================================
+     preview chrome
+     ========================================================= */
+  .frame { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: var(--space-md); background: var(--surface); }
+  .frame--full { margin-inline: calc(var(--gutter) * -1); border-radius: 0; border-inline: 0; }
+  .caplabel { font-size: 0.6875rem; font-weight: var(--weight-semibold); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin: var(--space-xl) 0 var(--space-xs); }
+
+  .phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius-lg); overflow: hidden; margin-top: var(--space-md); }
+  .phone .cb-hero { padding: var(--space-lg) var(--space-md); grid-template-columns: 1fr; gap: var(--space-lg); }
+  .phone .cb-hero__media { order: -1; }
+  .phone .cb-hero__frame { aspect-ratio: 16 / 9; box-shadow: var(--shadow-md); }
+  .phone .cb-hero__title { font-size: 2.125rem; max-width: none; }
+  .phone .cb-hero__sub { font-size: 1rem; margin-bottom: var(--space-lg); }
+  .phone .cb-header { padding: var(--space-xs) var(--space-md); }
+  .phone .cb-header__lang { display: none; }
+  .phone .cb-hero__perf { display: none; }
+
+  .dont { border-left: 3px solid var(--color-ink); background: var(--surface-cool); border-radius: var(--radius-sm); padding: var(--space-lg); margin-top: var(--space-xl); }
+  .dont h3 { margin: 0 0 var(--space-xs); font-size: var(--type-h3-size); }
+  .dont ul { margin: 0; padding-left: 1.1em; }
+  .dont li { font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2xs); }
+  .imglist { margin: var(--space-md) 0 0; padding: 0; list-style: none; }
+  .imglist li { font-size: var(--type-small-size); line-height: 1.7; color: var(--text-muted); padding: var(--space-xs) 0; border-top: 1px solid var(--border); }
+  .imglist b { color: var(--text); font-weight: var(--weight-semibold); }
+</style>
+</head>
+<body class="cb">
+<main class="page">
+
+  <p class="eyebrow">Blocks</p>
+  <h1 class="pagetitle">Hero</h1>
+  <hr class="rule">
+  <p class="lede">The rendering does the arguing, so it gets half the hero and the arched top edge that quotes the building's own doorway. The ask sits beside it on desktop and beneath it on a phone. One gold button, one ink outline, and a line of reassurance under both — nothing else competes above the fold.</p>
+
+  <p class="caplabel">Desktop · 1152px container</p>
+  <div class="frame">
+
+    <header class="cb-header">
+      <a class="cb-header__brand" href="#">
+        <span class="cb-logo-plate">
+          <!-- <img src="../Brand/logo-var1.png" alt="Církev bratrská Dejvice"> -->
+          <span class="stand-in"><i></i> Dejvice · Církev bratrská</span>
+        </span>
+      </a>
+      <div class="cb-header__right">
+        <a class="cb-header__lang" href="#" hreflang="cs" lang="cs">Česky</a>
+        <a class="cb-btn cb-btn--primary cb-btn--sm" href="#give">Give to the Sanctuary</a>
+      </div>
+    </header>
+
+    <section class="cb-hero">
+      <div class="cb-hero__copy">
+        <p class="cb-hero__eyebrow">
+          <svg width="11" height="14" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="2.8" stroke-linecap="round"/></svg>
+          Prague 6 · Církev bratrská Dejvice
+        </p>
+        <h1 class="cb-hero__title">A permanent home for a church that has never had one.</h1>
+        <p class="cb-hero__sub">For thirty years this congregation has rented an auditorium in a communist-era hotel, two kilometres from the neighbourhood it serves. Permission to build has finally been granted. Members have already given 14M Kč of the 54M needed.</p>
+        <div class="cb-hero__actions">
+          <a class="cb-btn cb-btn--primary cb-btn--lg" href="#give">Give to the Sanctuary</a>
+          <a class="cb-btn cb-btn--secondary cb-btn--lg" href="#project">See the plans</a>
+        </div>
+        <p class="cb-hero__reassure">Gifts go to the sanctuary fund only. Tax receipts on request.</p>
+      </div>
+
+      <figure class="cb-hero__media" style="margin:0">
+        <div class="cb-hero__frame">
+          <!-- <img src="../Modlitebna Images/12_sanctuary-from-main-entrance.jpg"
+                  alt="Rendering of the new sanctuary seen from the main entrance: rows of pale oak chairs, ribbed grey walls, a vaulted white ceiling and a slim black cross lit by a skylight."> -->
+          <div class="ph">
+            <div class="ph__inner">
+              <p class="ph__file">12_sanctuary-from-main-entrance.jpg</p>
+              <p class="ph__meta">1920 × 1080 · Sept 2025 design round · the hero image. Crop to 16:10 keeping the cross and the skylight in frame.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cb-hero__perf" aria-hidden="true"></div>
+        <figcaption class="cb-hero__caption">The sanctuary from the main entrance. Architect's rendering, 2025.</figcaption>
+      </figure>
+    </section>
+
+  </div>
+
+  <p class="caplabel">Mobile · 390px</p>
+  <p class="note">The image crops to a 16:9 banner and moves above the copy; the Give button in the header survives the breakpoint. The perforation band is dropped — at this width it reads as noise rather than as stone.</p>
+  <div class="phone">
+    <header class="cb-header">
+      <a class="cb-header__brand" href="#">
+        <span class="cb-logo-plate"><span class="stand-in"><i></i> Dejvice</span></span>
+      </a>
+      <div class="cb-header__right">
+        <a class="cb-btn cb-btn--primary cb-btn--sm" href="#give">Give</a>
+      </div>
+    </header>
+    <section class="cb-hero">
+      <figure class="cb-hero__media" style="margin:0">
+        <div class="cb-hero__frame">
+          <div class="ph">
+            <div class="ph__inner">
+              <p class="ph__file">12_sanctuary-from-main-entrance.jpg</p>
+              <p class="ph__meta">Crop to 16:9. Keep the cross in frame.</p>
+            </div>
+          </div>
+        </div>
+      </figure>
+      <div class="cb-hero__copy">
+        <p class="cb-hero__eyebrow">
+          <svg width="10" height="13" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="3" stroke-linecap="round"/></svg>
+          Prague 6
+        </p>
+        <h1 class="cb-hero__title">A permanent home for a church that has never had one.</h1>
+        <p class="cb-hero__sub">Thirty years in a rented hotel auditorium. Permission to build has finally been granted. Members have given 14M Kč of the 54M needed.</p>
+        <div class="cb-hero__actions">
+          <a class="cb-btn cb-btn--primary cb-btn--lg cb-btn--block" href="#give">Give to the Sanctuary</a>
+          <a class="cb-btn cb-btn--secondary cb-btn--block" href="#project">See the plans</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <h2 class="sect">Image slots</h2>
+  <p class="note">Files live in <code>../Modlitebna Images/</code>. Every image on the page is of this building — no stock photography of generic worship, in any block.</p>
+  <ul class="imglist">
+    <li><b>12_sanctuary-from-main-entrance.jpg</b> — primary hero. 1920×1080. Pale oak seating, ribbed grey walls, vaulted ceiling, black cross under a skylight.</li>
+    <li><b>16_sanctuary-from-last-row.jpg</b> — secondary hero / alternate. Seated eye-level view; warmer and more human, better for the email header.</li>
+    <li><b>02_proposed-design-overlay-on-photo.jpg</b> — the street-level "after". 3949×2954, print-safe. Pairs with 01 for the before/after block.</li>
+    <li><b>11_section-drawing-sanctuary-hall.jpg</b> — the cutaway section. The only image that proves the hall is underground, which is the whole cost argument.</li>
+    <li><b>03_exterior-street-view-render.jpg</b> — the welcoming public frontage. 960×540 only, screen use.</li>
+  </ul>
+  <p class="note" style="margin-top:var(--space-md)"><b>Print ceiling:</b> the 2025 renders top out at 1920px, which is about 160mm wide at 300dpi. A full-bleed render on A4 or US Letter needs the architect's originals — request them from modlitebna@cb6.cz before laying out the brochure.</p>
+
+  <div class="dont">
+    <h3>Do not</h3>
+    <ul>
+      <li>Do not overlay the headline on the rendering. The renders are pale and low-contrast; text on them either disappears or forces a scrim that ruins the light. Keep type beside the image, not on it.</li>
+      <li>Do not apply the arch radius to more than one image per page. Everywhere else, images get <code>--radius-md</code>.</li>
+      <li>Do not use the perforation band more than once per artefact — it belongs to the progress bar.</li>
+      <li>Do not place <code>logo-var1.png</code> or <code>logo-var1.svg</code> directly on paper. Both are white-on-transparent and will vanish. Use the ink plate, or request a light-ground logo from the client.</li>
+      <li>Do not add a scroll indicator, a parallax layer, or an entrance animation on the hero image.</li>
+    </ul>
+  </div>
+
+</main>
+</body>
+</html>

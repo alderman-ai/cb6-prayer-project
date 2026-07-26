@@ -1,0 +1,201 @@
+<!-- @dsCard group="Foundations" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Type — CB Dejvice Sanctuary</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; }
+  .page { padding: var(--space-2xl) var(--gutter) var(--space-4xl); max-width: var(--container); margin-inline: auto; }
+
+  .eyebrow {
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 var(--space-sm);
+  }
+  h1.pagetitle {
+    font-size: var(--type-h1-size); font-weight: var(--type-h1-weight);
+    line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking);
+    margin: 0 0 var(--space-md);
+  }
+  h2.sect {
+    font-size: var(--type-h2-size); font-weight: var(--type-h2-weight);
+    line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking);
+    margin: var(--space-3xl) 0 var(--space-xs);
+  }
+  .lede { font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-lg); }
+  .note { font-size: var(--type-small-size); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-md); }
+  .rule { height: 2px; width: 56px; background: var(--rule-accent); border: 0; margin: 0 0 var(--space-xl); }
+
+  /* ---- specimen rows ---- */
+  .spec { border-top: 1px solid var(--border); padding: var(--space-lg) 0; display: grid; grid-template-columns: 190px 1fr; gap: var(--space-lg); align-items: start; }
+  @media (max-width: 720px) { .spec { grid-template-columns: 1fr; gap: var(--space-sm); } }
+  .spec__meta { font-size: 0.75rem; line-height: 1.7; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .spec__meta b { display: block; color: var(--text); font-size: 0.8125rem; font-weight: var(--weight-semibold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-2xs); }
+  .spec__sample { min-width: 0; }
+
+  .t-display { font-size: var(--type-display-size); font-weight: var(--type-display-weight); line-height: var(--type-display-leading); letter-spacing: var(--type-display-tracking); margin: 0; }
+  .t-h1 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); margin: 0; }
+  .t-h2 { font-size: var(--type-h2-size); font-weight: var(--type-h2-weight); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); margin: 0; }
+  .t-h3 { font-size: var(--type-h3-size); font-weight: var(--type-h3-weight); line-height: var(--type-h3-leading); letter-spacing: var(--type-h3-tracking); margin: 0; }
+  .t-body-lg { font-size: var(--type-body-lg-size); font-weight: var(--type-body-lg-weight); line-height: var(--type-body-lg-leading); margin: 0; max-width: var(--measure); }
+  .t-body { font-size: var(--type-body-size); font-weight: var(--type-body-weight); line-height: var(--type-body-leading); margin: 0; max-width: var(--measure); }
+  .t-small { font-size: var(--type-small-size); font-weight: var(--type-small-weight); line-height: var(--type-small-leading); letter-spacing: var(--type-small-tracking); color: var(--text-muted); margin: 0; max-width: var(--measure); }
+  .t-eyebrow { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); line-height: var(--type-eyebrow-leading); letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted); margin: 0; }
+  .t-figure { font-size: var(--type-figure-size); font-weight: var(--type-figure-weight); line-height: var(--type-figure-leading); letter-spacing: var(--type-figure-tracking); font-variant-numeric: tabular-nums; margin: 0; }
+
+  /* ---- weights ---- */
+  .weights { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin-top: var(--space-md); }
+  .wt { border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-md); }
+  .wt p:first-child { font-size: 1.5rem; margin: 0 0 var(--space-xs); line-height: 1.2; }
+  .wt p:last-child { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin: 0; }
+  .w400 { font-weight: 400 } .w500 { font-weight: 500 } .w600 { font-weight: 600 } .w700 { font-weight: 700 }
+  .wi { font-style: italic }
+
+  /* ---- czech / diacritics ---- */
+  .czech { background: var(--surface-warm-strong); border: 1px solid var(--border-warm); border-radius: var(--radius-md); padding: var(--space-xl); margin-top: var(--space-md); }
+  .czech .line { font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem); font-weight: 600; letter-spacing: -0.012em; line-height: 1.24; margin: 0 0 var(--space-md); }
+  .czech .glyphs { font-size: 1.75rem; font-weight: 500; letter-spacing: 0.08em; margin: 0 0 var(--space-md); color: var(--color-ink-600); }
+  .czech .cap { font-size: var(--type-small-size); color: var(--text-muted); margin: 0; }
+  .czech code { font-size: 0.8125rem; background: var(--color-paper); padding: 1px 5px; border-radius: var(--radius-xs); border: 1px solid var(--border-warm); }
+
+  /* ---- numerals ---- */
+  .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md); margin-top: var(--space-md); }
+  .fig { border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-md) var(--space-lg); }
+  .fig__n { font-size: var(--type-figure-size); font-weight: var(--type-figure-weight); letter-spacing: var(--type-figure-tracking); line-height: 1; font-variant-numeric: tabular-nums; margin: 0; }
+  .fig__l { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted); margin: var(--space-xs) 0 0; }
+
+  /* ---- pairing in situ ---- */
+  .insitu { border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--space-2xl); margin-top: var(--space-md); }
+  .insitu .kicker { display: flex; align-items: center; gap: var(--space-sm); margin: 0 0 var(--space-md); }
+  .insitu .kicker svg { flex: none; }
+  .insitu .kicker span { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted); }
+  .insitu h3 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); margin: 0 0 var(--space-md); max-width: 20ch; }
+  .insitu p { font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading); color: var(--text-muted); max-width: var(--measure-tight); margin: 0; }
+
+  .rulewrap { display: flex; align-items: center; gap: var(--space-md); margin: var(--space-xl) 0 0; }
+  .rulewrap .ribbon { height: 22px; flex: 1; background-image: var(--pattern-ribbing); opacity: 0.7; }
+
+  .dont { border-left: 3px solid var(--color-ink); background: var(--surface-cool); border-radius: var(--radius-sm); padding: var(--space-lg); margin-top: var(--space-lg); }
+  .dont h3 { margin: 0 0 var(--space-xs); font-size: var(--type-h3-size); }
+  .dont ul { margin: 0; padding-left: 1.1em; }
+  .dont li { font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2xs); }
+</style>
+</head>
+<body class="cb">
+<main class="page">
+
+  <p class="eyebrow">Foundations</p>
+  <h1 class="pagetitle">Type</h1>
+  <hr class="rule">
+  <p class="lede">Raleway, and only Raleway. It is what the church already publishes in, it is SIL-licensed so it embeds in a print PDF without a fee, and its latin-ext subset carries every Czech diacritic. The personality comes from how it is set, not from a second face: tight tracking on the large sizes, and one wide-tracked uppercase eyebrow per block — the single, licence-free nod to the Novecento Wide wordmark in the logo.</p>
+
+  <h2 class="sect">Scale</h2>
+  <p class="note">Sizes marked with a range are fluid via <code>clamp()</code> — the first number is mobile, the second desktop.</p>
+
+  <div class="spec">
+    <div class="spec__meta"><b>Display</b>40 → 64px<br>600 semibold<br>1.06 leading<br>−0.022em tracking</div>
+    <div class="spec__sample"><p class="t-display">A permanent home in Prague 6</p></div>
+  </div>
+
+  <div class="spec">
+    <div class="spec__meta"><b>H1</b>32 → 42px<br>600 semibold<br>1.14 leading<br>−0.016em tracking</div>
+    <div class="spec__sample"><p class="t-h1">Thirty years of renting a hall two kilometres away</p></div>
+  </div>
+
+  <div class="spec">
+    <div class="spec__meta"><b>H2</b>24 → 30px<br>600 semibold<br>1.22 leading<br>−0.01em tracking</div>
+    <div class="spec__sample"><p class="t-h2">Why the sanctuary sits below ground</p></div>
+  </div>
+
+  <div class="spec">
+    <div class="spec__meta"><b>H3</b>19px<br>600 semibold<br>1.34 leading<br>−0.004em tracking</div>
+    <div class="spec__sample"><p class="t-h3">Giving by bank transfer</p></div>
+  </div>
+
+  <div class="spec">
+    <div class="spec__meta"><b>Body large</b>18px<br>400 regular<br>1.62 leading</div>
+    <div class="spec__sample"><p class="t-body-lg">For three decades the congregation has met in the auditorium of a communist-era hotel, two kilometres from the neighbourhood it serves. Permission to build has finally been granted.</p></div>
+  </div>
+
+  <div class="spec">
+    <div class="spec__meta"><b>Body</b>16px<br>400 regular<br>1.66 leading<br>max 64ch</div>
+    <div class="spec__sample"><p class="t-body">Prague 6 is home to 109,000 residents and 38,000 university students, in one of the most secular societies in Europe. The new sanctuary will seat the congregation, open a café onto the street, and give the church a visible address for the first time in its history. Because city regulations cap the height of the building, most of the hall must be excavated beneath the existing house — which is why a project of this size costs what it does.</p></div>
+  </div>
+
+  <div class="spec">
+    <div class="spec__meta"><b>Small</b>14px<br>400 regular<br>1.55 leading<br>+0.004em tracking</div>
+    <div class="spec__sample"><p class="t-small">Rendering: sanctuary from the main entrance, September 2025 design round. Images are the property of the church and its architect.</p></div>
+  </div>
+
+  <div class="spec">
+    <div class="spec__meta"><b>Eyebrow</b>12px<br>600 semibold<br>1.2 leading<br>+0.18em tracking<br>uppercase</div>
+    <div class="spec__sample"><p class="t-eyebrow">Where the project stands</p></div>
+  </div>
+
+  <div class="spec">
+    <div class="spec__meta"><b>Figure</b>28 → 38px<br>700 bold<br>1.0 leading<br>−0.02em tracking<br>tabular numerals</div>
+    <div class="spec__sample"><p class="t-figure">54,000,000 CZK</p></div>
+  </div>
+
+  <h2 class="sect">Weights</h2>
+  <p class="note">Four romans and four italics are loaded. In practice: 400 for body, 600 for every heading and the eyebrow, 700 for figures only. 500 is a fallback for dense UI labels. Italic is for scripture and captions, never for emphasis inside a sentence.</p>
+  <div class="weights">
+    <div class="wt"><p class="w400">Modlitebna</p><p>400 · Regular · body</p></div>
+    <div class="wt"><p class="w500">Modlitebna</p><p>500 · Medium · dense labels</p></div>
+    <div class="wt"><p class="w600">Modlitebna</p><p>600 · Semibold · headings, eyebrows</p></div>
+    <div class="wt"><p class="w700">Modlitebna</p><p>700 · Bold · figures only</p></div>
+    <div class="wt"><p class="w400 wi">Modlitebna</p><p>400 italic · scripture, captions</p></div>
+    <div class="wt"><p class="w600 wi">Modlitebna</p><p>600 italic · attribution line</p></div>
+  </div>
+
+  <h2 class="sect">Czech &amp; diacritics</h2>
+  <p class="note">The Czech build must load the <code>latin-ext</code> subset. Without it, ě š č ř ž ů fall back to a system face mid-word and the whole page loses its voice.</p>
+  <div class="czech">
+    <p class="line">Modlitebna pro Prahu 6 — ěščřžů</p>
+    <p class="line" style="font-weight:400">Postavme spolu trvalý domov pro sbor v Dejvicích.</p>
+    <p class="glyphs">á č ď é ě í ň ó ř š ť ú ů ý ž · Á Č Ď É Ě Í Ň Ó Ř Š Ť Ú Ů Ý Ž</p>
+    <p class="cap">Raleway's caron and ring accents sit high and narrow. At Display size, tracking of −0.022em keeps them from touching the ascenders on the line above — check any Czech headline that runs to two lines, and add <code>line-height: 1.12</code> locally if the accents collide.</p>
+  </div>
+
+  <h2 class="sect">Figures</h2>
+  <p class="note">All money uses <code>font-variant-numeric: tabular-nums</code> so CZK and USD columns align. Czech convention groups with a thin space (54 000 000 Kč); English convention uses commas. Set each language build in its own convention rather than picking one for both.</p>
+  <div class="figs">
+    <div class="fig"><p class="fig__n">54M</p><p class="fig__l">Kč · total project</p></div>
+    <div class="fig"><p class="fig__n">14M</p><p class="fig__l">Kč · committed</p></div>
+    <div class="fig"><p class="fig__n">40M</p><p class="fig__l">Kč · remaining</p></div>
+    <div class="fig"><p class="fig__n">26%</p><p class="fig__l">of the way there</p></div>
+  </div>
+
+  <h2 class="sect">In situ</h2>
+  <p class="note">How the eyebrow, heading and lead sit together. The arch mark is the building's own front door, drawn at 12px; it replaces a bullet or a numbered marker, neither of which would be true here.</p>
+  <div class="insitu">
+    <div class="kicker">
+      <svg width="13" height="17" viewBox="0 0 24 32" fill="none" aria-hidden="true">
+        <path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span>Where the project stands</span>
+    </div>
+    <h3>Fourteen million koruna, given by a congregation of a few hundred.</h3>
+    <p>The members have already committed 14M CZK of their own — roughly a quarter of the total, given sacrificially over the past two years. What remains is 40M.</p>
+    <div class="rulewrap">
+      <div class="ribbon" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="dont">
+    <h3>Do not</h3>
+    <ul>
+      <li>Do not add a second typeface. Raleway carries display, body and figures; a serif display would read as a different institution than cb6.cz.</li>
+      <li>Do not re-set the logo wordmark in Raleway. The logo is Novecento Wide DemiBold, a commercial face — use <code>logo-var1.png</code> as supplied, or request an outlined vector.</li>
+      <li>Do not set body copy above 64 characters per line, or a hero sub above 52.</li>
+      <li>Do not use uppercase for anything except the eyebrow. Uppercase headlines read as shouting, and Czech diacritics suffer badly in caps.</li>
+      <li>Do not use bold (700) for emphasis in running text. Use semibold on the heading above it, or restructure the sentence.</li>
+    </ul>
+  </div>
+
+</main>
+</body>
+</html>

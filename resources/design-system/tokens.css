@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+/* ==========================================================================
+   CB Dejvice — Sanctuary Fundraising Design System
+   tokens.css · v1.0 · 2026-07-26
+
+   Source of truth for colour, type, spacing, radii, shadow and the two
+   architectural textures. Every downstream artefact (email, 1-page brochure
+   PDF, landing page) derives from this file.
+
+   Palette authority: Resources/Brand/BRAND NOTES.md §1.
+   DO NOT introduce #E76F51 (or any "cred" value). It is an inferred colour
+   from a malformed CSS declaration and is unconfirmed by the client.
+
+   Self-hosting for print/PDF toolchains: see the commented @font-face block
+   at the bottom of this file. WOFF2 subsets live in ../Brand/fonts/.
+   The Czech build MUST load the latin-ext subset (ě š č ř ž ů).
+   ========================================================================== */
+
+:root {
+
+  /* ---------------------------------------------------------------
+     1. COLOUR — brand core (confirmed, from the live cb6.cz theme)
+     --------------------------------------------------------------- */
+  --color-ink:            #264653;  /* --color-cblue. The brand's ink. All body + heading text. */
+  --color-gold:           #E9C46A;  /* --color-logo-100 / --color-cyellow. Primary accent + CTA fill. */
+  --color-gold-light:     #FFD56E;  /* --color-logo-200. Secondary accent, gradients, tints. */
+  --color-paper:          #FFFFFF;  /* Default ground. Everything sits on paper. */
+
+  /* ---------------------------------------------------------------
+     1a. COLOUR — ink family (derived; darker/lighter steps of #264653)
+     --------------------------------------------------------------- */
+  --color-ink-900:        #16303A;  /* Pressed states, deepest panel. */
+  --color-ink-800:        #1E3C47;  /* Hover on ink surfaces. */
+  --color-ink-600:        #3A6272;  /* Ink on ink-panel dividers, secondary UI. */
+  --color-ink-muted:      #5A7480;  /* Muted body text. 4.96:1 on paper — AA for normal text. */
+  --color-ink-faint:      #93A6AE;  /* Captions, credits, disabled. NOT for body copy. */
+
+  /* ---------------------------------------------------------------
+     1b. COLOUR — oak & cream (warm tints of the gold; the pale-oak seating)
+     --------------------------------------------------------------- */
+  --color-gold-deep:      #C9A24E;  /* Gold that survives a hairline. Still never used as text on paper. */
+  --color-oak-300:        #E7D3A8;  /* Warm border, perforation dots. */
+  --color-oak-200:        #F2E4C4;  /* Warm fill: quote blocks, giving-detail cards. */
+  --color-cream-100:      #FAF3E4;  /* Warm section ground. */
+  --color-cream-50:       #FDFAF4;  /* Barely-there warm ground. Default alternate to paper. */
+
+  /* ---------------------------------------------------------------
+     1c. COLOUR — stone (the grey ribbed wall panelling + terrazzo floor)
+     --------------------------------------------------------------- */
+  --color-stone-500:      #8E948F;  /* Rib lines at full strength. Decorative only. */
+  --color-stone-300:      #C9CCC6;  /* Rib lines, strong borders. */
+  --color-stone-200:      #E2E4DF;  /* Default border. */
+  --color-stone-100:      #F2F3F0;  /* Cool section ground, image placeholder fill. */
+
+  /* ---------------------------------------------------------------
+     1d. COLOUR — reference only. NOT a UI colour.
+     --------------------------------------------------------------- */
+  --color-facade-terracotta: #E08A62; /* The existing house in the renders. Documented so imagery
+                                         and UI don't clash. Never fill, never text, never rule. */
+
+  /* ---------------------------------------------------------------
+     1e. COLOUR — semantic aliases (use these in components)
+     --------------------------------------------------------------- */
+  --surface:              var(--color-paper);
+  --surface-warm:         var(--color-cream-50);
+  --surface-warm-strong:  var(--color-cream-100);
+  --surface-cool:         var(--color-stone-100);
+  --surface-ink:          var(--color-ink);
+
+  --text:                 var(--color-ink);
+  --text-muted:           var(--color-ink-muted);
+  --text-faint:           var(--color-ink-faint);
+  --text-on-ink:          var(--color-paper);
+  --text-on-gold:         var(--color-ink);
+
+  --border:               var(--color-stone-200);
+  --border-strong:        var(--color-stone-300);
+  --border-warm:          var(--color-oak-300);
+  --rule-accent:          var(--color-gold);
+
+  --accent:               var(--color-gold);
+  --accent-soft:          var(--color-oak-200);
+
+  --focus-ring:           0 0 0 2px var(--color-paper), 0 0 0 4px var(--color-ink);
+  --focus-ring-on-ink:    0 0 0 2px var(--color-ink), 0 0 0 4px var(--color-gold);
+
+  /* Verified contrast (WCAG 2.1, normal text):
+     ink #264653 on paper .......... 10.1:1  AAA
+     ink-muted #5A7480 on paper .....  4.96:1 AA
+     ink #264653 on gold #E9C46A ....  6.1:1  AA      <- primary CTA
+     gold #E9C46A on ink #264653 ....  6.1:1  AA      <- inverse CTA
+     gold #E9C46A on paper ..........  1.7:1  FAIL    <- never text, never an icon that carries meaning
+  */
+
+  /* ---------------------------------------------------------------
+     2. TYPE — Raleway only (brand mandate, SIL OFL, print-embeddable)
+     --------------------------------------------------------------- */
+  --font-sans: "Raleway", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* display — hero only, once per page */
+  --type-display-size:    clamp(2.5rem, 1.55rem + 3.7vw, 4rem);   /* 40 → 64px */
+  --type-display-weight:  600;
+  --type-display-leading: 1.06;
+  --type-display-tracking:-0.022em;
+
+  /* h1 — page/section title where no display is used */
+  --type-h1-size:         clamp(2rem, 1.6rem + 1.6vw, 2.625rem);  /* 32 → 42px */
+  --type-h1-weight:       600;
+  --type-h1-leading:      1.14;
+  --type-h1-tracking:     -0.016em;
+
+  /* h2 — block headings */
+  --type-h2-size:         clamp(1.5rem, 1.32rem + 0.72vw, 1.875rem); /* 24 → 30px */
+  --type-h2-weight:       600;
+  --type-h2-leading:      1.22;
+  --type-h2-tracking:     -0.01em;
+
+  /* h3 — card titles, sub-blocks */
+  --type-h3-size:         1.1875rem;   /* 19px */
+  --type-h3-weight:       600;
+  --type-h3-leading:      1.34;
+  --type-h3-tracking:     -0.004em;
+
+  /* body-lg — hero sub, lead paragraph */
+  --type-body-lg-size:    1.125rem;    /* 18px */
+  --type-body-lg-weight:  400;
+  --type-body-lg-leading: 1.62;
+  --type-body-lg-tracking:0;
+
+  /* body — default */
+  --type-body-size:       1rem;        /* 16px */
+  --type-body-weight:     400;
+  --type-body-leading:    1.66;
+  --type-body-tracking:   0;
+
+  /* small — captions, fine print, image credits */
+  --type-small-size:      0.875rem;    /* 14px */
+  --type-small-weight:    400;
+  --type-small-leading:   1.55;
+  --type-small-tracking:  0.004em;
+
+  /* eyebrow — the ONE place the wide-tracked logo wordmark is echoed */
+  --type-eyebrow-size:    0.75rem;     /* 12px */
+  --type-eyebrow-weight:  600;
+  --type-eyebrow-leading: 1.2;
+  --type-eyebrow-tracking:0.18em;
+
+  /* figure — money. Tabular, so 54 / 14 / 40 align in columns. */
+  --type-figure-size:     clamp(1.75rem, 1.45rem + 1.2vw, 2.375rem); /* 28 → 38px */
+  --type-figure-weight:   700;
+  --type-figure-leading:  1.0;
+  --type-figure-tracking: -0.02em;
+
+  --measure:              64ch;   /* max line length for body copy */
+  --measure-tight:        52ch;   /* lead paragraphs, hero sub */
+
+  /* ---------------------------------------------------------------
+     3. SPACE — 4px base
+     --------------------------------------------------------------- */
+  --space-3xs:  0.125rem;  /*  2px */
+  --space-2xs:  0.25rem;   /*  4px */
+  --space-xs:   0.5rem;    /*  8px */
+  --space-sm:   0.75rem;   /* 12px */
+  --space-md:   1rem;      /* 16px */
+  --space-lg:   1.5rem;    /* 24px */
+  --space-xl:   2rem;      /* 32px */
+  --space-2xl:  3rem;      /* 48px */
+  --space-3xl:  4rem;      /* 64px */
+  --space-4xl:  6rem;      /* 96px */
+  --space-5xl:  8rem;      /* 128px */
+
+  --section-pad-y: clamp(3rem, 2rem + 4vw, 6rem);
+  --gutter:        clamp(1.25rem, 0.75rem + 2vw, 2.5rem);
+  --container:     72rem;   /* 1152px */
+  --container-text:42rem;   /* 672px — reading column */
+
+  /* ---------------------------------------------------------------
+     4. RADIUS — restrained, except the arch
+     --------------------------------------------------------------- */
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   14px;
+  --radius-pill: 999px;
+
+  /* The arch. Echoes the pointed-arch glazing cut into the perforated
+     stone screen. Applied to the TOP of imagery and hero media only. */
+  --radius-arch: 50% 50% var(--radius-sm) var(--radius-sm) / 18% 18% var(--radius-sm) var(--radius-sm);
+  --radius-arch-tall: 50% 50% var(--radius-sm) var(--radius-sm) / 34% 34% var(--radius-sm) var(--radius-sm);
+
+  /* ---------------------------------------------------------------
+     5. SHADOW — ink-tinted, very soft. This building is lit by a skylight.
+     --------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(38, 70, 83, 0.05);
+  --shadow-sm: 0 1px 3px rgba(38, 70, 83, 0.06), 0 1px 2px rgba(38, 70, 83, 0.04);
+  --shadow-md: 0 4px 14px rgba(38, 70, 83, 0.07), 0 1px 3px rgba(38, 70, 83, 0.04);
+  --shadow-lg: 0 12px 36px rgba(38, 70, 83, 0.09), 0 2px 6px rgba(38, 70, 83, 0.04);
+  --shadow-inset-hairline: inset 0 0 0 1px var(--border);
+
+  /* ---------------------------------------------------------------
+     6. TEXTURE — the two architectural motifs. Use each sparingly.
+     --------------------------------------------------------------- */
+
+  /* PERFORATION — the punched white stone screen on the new entrance.
+     Signature motif. Reserved for: the unfunded remainder of the progress
+     bar, and at most one hero/masthead band per artefact. */
+  --pattern-perforation: radial-gradient(circle at center,
+                           var(--color-oak-300) 0 1.7px, transparent 1.8px);
+  --pattern-perforation-size: 9px 9px;
+
+  --pattern-perforation-stone: radial-gradient(circle at center,
+                           var(--color-stone-300) 0 1.7px, transparent 1.8px);
+
+  /* RIBBING — the grey vertical wall panelling inside the sanctuary.
+     Use as a divider or a thin vertical rhythm behind a section header. */
+  --pattern-ribbing: repeating-linear-gradient(90deg,
+                       var(--color-stone-300) 0 1px, transparent 1px 6px);
+  --pattern-ribbing-warm: repeating-linear-gradient(90deg,
+                       var(--color-oak-300) 0 1px, transparent 1px 6px);
+
+  /* ---------------------------------------------------------------
+     7. MOTION — church-appropriate. Nothing bounces.
+     --------------------------------------------------------------- */
+  --ease:        cubic-bezier(0.22, 0.61, 0.36, 1);
+  --duration-fast:   140ms;
+  --duration-base:   220ms;
+  --duration-slow:   520ms;
+}
+
+/* Reduced motion is honoured everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+  }
+}
+
+/* ==========================================================================
+   SELF-HOSTED RALEWAY — uncomment for print/PDF toolchains or any build that
+   must not call Google. Files are in ../Brand/fonts/. The verbatim Google CSS
+   (with full unicode-range declarations) is ../Brand/fonts/raleway-google.css.
+   The Czech build requires latin-ext.
+   --------------------------------------------------------------------------
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../Brand/fonts/Raleway-variable-normal-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+                 U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF,
+                 U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../Brand/fonts/Raleway-variable-normal-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Raleway";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../Brand/fonts/Raleway-variable-italic-latin-ext.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Raleway";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../Brand/fonts/Raleway-variable-italic-latin.woff2") format("woff2");
+}
+   ========================================================================== */
+
+/* ==========================================================================
+   BASE — opt in by adding class="cb" to <body>, or copy into a reset.
+   ========================================================================== */
+.cb,
+.cb *,
+.cb *::before,
+.cb *::after { box-sizing: border-box; }
+
+.cb {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-leading);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.cb :focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
+}

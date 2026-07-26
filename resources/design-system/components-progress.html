@@ -1,0 +1,329 @@
+<!-- @dsCard group="Components" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progress — CB Dejvice Sanctuary</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; }
+  .page { padding: var(--space-2xl) var(--gutter) var(--space-4xl); max-width: var(--container); margin-inline: auto; }
+  .eyebrow { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted); margin: 0 0 var(--space-sm); }
+  h1 { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); margin: 0 0 var(--space-md); }
+  h2 { font-size: var(--type-h2-size); font-weight: var(--type-h2-weight); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); margin: var(--space-3xl) 0 var(--space-xs); }
+  .lede { font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-lg); }
+  .note { font-size: var(--type-small-size); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-md); }
+  .rule { height: 2px; width: 56px; background: var(--rule-accent); border: 0; margin: 0 0 var(--space-xl); }
+  code { font-size: 0.8125rem; background: var(--surface-cool); padding: 1px 5px; border-radius: var(--radius-xs); border: 1px solid var(--border); }
+
+  /* =========================================================
+     PROGRESS — the signature component.
+
+     The bar is the wall. What has been given is solid gold stone;
+     what remains is the perforated screen, still open to the light.
+     That is the actual façade of the building, not a thermometer.
+     Set one number: --pct.
+     ========================================================= */
+  .cb-progress { --pct: 26%; max-width: 46rem; }
+
+  .cb-progress__figures {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-sm) var(--space-lg);
+    margin: 0 0 var(--space-lg);
+  }
+  .cb-progress__amount {
+    font-size: var(--type-figure-size);
+    font-weight: var(--type-figure-weight);
+    line-height: var(--type-figure-leading);
+    letter-spacing: var(--type-figure-tracking);
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+    margin: 0;
+  }
+  .cb-progress__of {
+    font-size: var(--type-body-lg-size);
+    font-weight: var(--weight-regular);
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .cb-progress__usd {
+    font-size: var(--type-small-size);
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+  }
+
+  /* --- the bar --- */
+  .cb-progress__track {
+    position: relative;
+    height: 14px;
+    border-radius: var(--radius-xs);
+    overflow: hidden;
+    background-color: var(--color-cream-50);
+    background-image: var(--pattern-perforation);
+    background-size: var(--pattern-perforation-size);
+    box-shadow: inset 0 0 0 1px var(--border-warm);
+  }
+  .cb-progress__fill {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: var(--pct);
+    background: linear-gradient(180deg, var(--color-gold-light), var(--color-gold));
+    box-shadow: inset 0 0 0 1px var(--color-gold-deep);
+    border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+    transition: inline-size var(--duration-slow) var(--ease);
+  }
+  /* the joint between built and unbuilt: a single ink hairline */
+  .cb-progress__seam {
+    position: absolute;
+    inset-block: -4px;
+    inset-inline-start: var(--pct);
+    inline-size: 1px;
+    background: var(--color-ink);
+    transform: translateX(-0.5px);
+  }
+
+  /* --- labels beneath --- */
+  .cb-progress__scale {
+    position: relative;
+    margin-top: var(--space-sm);
+    min-height: 3.2em;
+  }
+  .cb-progress__mark {
+    position: absolute;
+    top: 0;
+    max-width: 15rem;
+  }
+  .cb-progress__mark--given { inset-inline-start: 0; }
+  .cb-progress__mark--goal  { inset-inline-end: 0; text-align: end; }
+  .cb-progress__mark b {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: var(--weight-semibold);
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+    line-height: 1.35;
+  }
+  .cb-progress__mark span {
+    display: block;
+    font-size: var(--type-eyebrow-size);
+    font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .cb-progress__remaining {
+    margin: var(--space-lg) 0 0;
+    font-size: var(--type-body-lg-size);
+    line-height: var(--type-body-lg-leading);
+    color: var(--text);
+    max-width: var(--measure);
+  }
+  .cb-progress__remaining b { font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
+  .cb-progress__footnote {
+    margin: var(--space-sm) 0 0;
+    font-size: var(--type-small-size);
+    color: var(--text-faint);
+  }
+
+  /* --- variant: compact. Email, brochure sidebar, header strip. --- */
+  .cb-progress--compact .cb-progress__figures { margin-bottom: var(--space-sm); gap: var(--space-xs) var(--space-md); }
+  .cb-progress--compact .cb-progress__amount { font-size: 1.375rem; }
+  .cb-progress--compact .cb-progress__of { font-size: 1rem; }
+  .cb-progress--compact .cb-progress__track { height: 10px; }
+  .cb-progress--compact .cb-progress__scale { display: none; }
+  .cb-progress--compact .cb-progress__caption {
+    margin: var(--space-sm) 0 0; font-size: var(--type-small-size); color: var(--text-muted); font-variant-numeric: tabular-nums;
+  }
+
+  /* --- variant: on ink. Trust panel / footer. --- */
+  .cb-progress--on-ink { color: var(--text-on-ink); }
+  .cb-progress--on-ink .cb-progress__amount { color: var(--color-gold); }
+  .cb-progress--on-ink .cb-progress__of,
+  .cb-progress--on-ink .cb-progress__usd,
+  .cb-progress--on-ink .cb-progress__mark span { color: rgba(255,255,255,0.66); }
+  .cb-progress--on-ink .cb-progress__mark b,
+  .cb-progress--on-ink .cb-progress__remaining { color: rgba(255,255,255,0.94); }
+  .cb-progress--on-ink .cb-progress__track {
+    background-color: var(--color-ink-900);
+    background-image: radial-gradient(circle at center, rgba(255,255,255,0.22) 0 1.7px, transparent 1.8px);
+    box-shadow: inset 0 0 0 1px var(--color-ink-600);
+  }
+  .cb-progress--on-ink .cb-progress__seam { background: var(--color-paper); }
+  .cb-progress--on-ink .cb-progress__footnote { color: rgba(255,255,255,0.5); }
+
+  /* --- variant: print / greyscale safe --- */
+  .cb-progress--print .cb-progress__track {
+    background-color: #fff;
+    background-image: var(--pattern-perforation-stone);
+    box-shadow: inset 0 0 0 1px var(--color-ink);
+  }
+  .cb-progress--print .cb-progress__fill {
+    background: var(--color-gold);
+    box-shadow: inset 0 0 0 1px var(--color-ink);
+  }
+
+  /* =========================================================
+     preview chrome
+     ========================================================= */
+  .panel { padding: var(--space-2xl); border-radius: var(--radius-md); border: 1px solid var(--border); margin-top: var(--space-md); }
+  .panel--warm { background: var(--surface-warm); border-color: var(--border-warm); }
+  .panel--ink { background: var(--surface-ink); border-color: var(--color-ink-600); }
+  .panel--paper { background: var(--surface); }
+  .panel--narrow { max-width: 32rem; }
+  .caplabel { font-size: 0.6875rem; font-weight: var(--weight-semibold); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 var(--space-md); }
+  .panel--ink .caplabel { color: rgba(255,255,255,0.6); }
+
+  .dont { border-left: 3px solid var(--color-ink); background: var(--surface-cool); border-radius: var(--radius-sm); padding: var(--space-lg); margin-top: var(--space-xl); }
+  .dont h3 { margin: 0 0 var(--space-xs); font-size: var(--type-h3-size); }
+  .dont ul { margin: 0; padding-left: 1.1em; }
+  .dont li { font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2xs); }
+
+  .fxwarn { border: 1px dashed var(--border-strong); border-radius: var(--radius-md); padding: var(--space-md) var(--space-lg); margin-top: var(--space-lg); }
+  .fxwarn p { margin: 0; font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); }
+  .fxwarn b { color: var(--text); }
+</style>
+</head>
+<body class="cb">
+<main class="page">
+
+  <p class="eyebrow">Components</p>
+  <h1>Progress</h1>
+  <hr class="rule">
+  <p class="lede">The signature element. The bar is the wall: what has been given is solid gold stone, what remains is the perforated screen that fronts the new entrance — still open, still letting light through. One ink hairline marks the seam between built and unbuilt. No thermometer, no bulb, no red.</p>
+
+  <h2>Default — landing page</h2>
+  <p class="note">Set <code>--pct</code> on <code>.cb-progress</code> and nowhere else; the fill, the seam and the label all read from it. The bar is exposed to assistive tech as a <code>role="progressbar"</code> with real values.</p>
+
+  <div class="panel panel--warm">
+    <p class="caplabel">On cream ground</p>
+
+    <div class="cb-progress" style="--pct: 26%">
+      <div class="cb-progress__figures">
+        <p class="cb-progress__amount">14M Kč <span class="cb-progress__of">of 54M Kč</span></p>
+        <p class="cb-progress__usd">≈ $670,000 of ≈ $2.6M USD</p>
+      </div>
+
+      <div class="cb-progress__track"
+           role="progressbar"
+           aria-valuemin="0" aria-valuemax="54000000" aria-valuenow="14000000"
+           aria-valuetext="14 million koruna committed of a 54 million koruna goal — 26 percent"
+           aria-label="Sanctuary fund">
+        <div class="cb-progress__fill"></div>
+        <div class="cb-progress__seam"></div>
+      </div>
+
+      <div class="cb-progress__scale">
+        <div class="cb-progress__mark cb-progress__mark--given">
+          <b>14,000,000 Kč</b>
+          <span>Committed by members</span>
+        </div>
+        <div class="cb-progress__mark cb-progress__mark--goal">
+          <b>54,000,000 Kč</b>
+          <span>Total project</span>
+        </div>
+      </div>
+
+      <p class="cb-progress__remaining">
+        A congregation of a few hundred has already committed <b>26%</b> of the cost from its own pockets.
+        <b>40,000,000 Kč</b> remains — about <b>$1.9M</b>.
+      </p>
+      <p class="cb-progress__footnote">Czech koruna is the project's currency. USD figures are indicative.</p>
+    </div>
+  </div>
+
+  <h2>Compact — email, brochure, header strip</h2>
+  <p class="note">Same component, labels collapsed to one line. Fits a 600px email column and a brochure sidebar. <code>.cb-progress--compact</code></p>
+  <div class="panel panel--paper panel--narrow">
+    <div class="cb-progress cb-progress--compact" style="--pct: 26%">
+      <div class="cb-progress__figures">
+        <p class="cb-progress__amount">14M Kč <span class="cb-progress__of">of 54M</span></p>
+      </div>
+      <div class="cb-progress__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="26" aria-label="Sanctuary fund: 26 percent committed">
+        <div class="cb-progress__fill"></div>
+        <div class="cb-progress__seam"></div>
+      </div>
+      <p class="cb-progress__caption">26% committed · 40M Kč (≈ $1.9M) remaining</p>
+    </div>
+  </div>
+
+  <h2>On ink — trust panel, footer</h2>
+  <p class="note">The perforation inverts to light-on-dark, the seam becomes paper white, and the figure takes the gold. <code>.cb-progress--on-ink</code></p>
+  <div class="panel panel--ink">
+    <p class="caplabel">On ink ground</p>
+    <div class="cb-progress cb-progress--on-ink" style="--pct: 26%">
+      <div class="cb-progress__figures">
+        <p class="cb-progress__amount">14M Kč <span class="cb-progress__of">of 54M Kč</span></p>
+        <p class="cb-progress__usd">≈ $670,000 of ≈ $2.6M USD</p>
+      </div>
+      <div class="cb-progress__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="26" aria-label="Sanctuary fund: 26 percent committed">
+        <div class="cb-progress__fill"></div>
+        <div class="cb-progress__seam"></div>
+      </div>
+      <div class="cb-progress__scale">
+        <div class="cb-progress__mark cb-progress__mark--given"><b>14,000,000 Kč</b><span>Committed by members</span></div>
+        <div class="cb-progress__mark cb-progress__mark--goal"><b>54,000,000 Kč</b><span>Total project</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Print / greyscale</h2>
+  <p class="note">For the PDF brochure and any page that may be photocopied. The gold fill gains a full ink outline and the perforation switches to the stone dot so it survives a laser printer. <code>.cb-progress--print</code></p>
+  <div class="panel panel--paper panel--narrow">
+    <div class="cb-progress cb-progress--compact cb-progress--print" style="--pct: 26%">
+      <div class="cb-progress__figures">
+        <p class="cb-progress__amount">14M Kč <span class="cb-progress__of">of 54M</span></p>
+      </div>
+      <div class="cb-progress__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="26" aria-label="Sanctuary fund: 26 percent committed">
+        <div class="cb-progress__fill"></div>
+        <div class="cb-progress__seam"></div>
+      </div>
+      <p class="cb-progress__caption">26% committed · 40M Kč (≈ $1.9M) remaining</p>
+    </div>
+  </div>
+
+  <h2>Other values</h2>
+  <p class="note">The component holds its dignity at any percentage. Check the seam does not collide with the label at the extremes.</p>
+  <div class="panel panel--paper">
+    <div class="cb-progress cb-progress--compact" style="--pct: 8%; margin-bottom: var(--space-xl)">
+      <div class="cb-progress__track"><div class="cb-progress__fill"></div><div class="cb-progress__seam"></div></div>
+      <p class="cb-progress__caption">8%</p>
+    </div>
+    <div class="cb-progress cb-progress--compact" style="--pct: 26%; margin-bottom: var(--space-xl)">
+      <div class="cb-progress__track"><div class="cb-progress__fill"></div><div class="cb-progress__seam"></div></div>
+      <p class="cb-progress__caption">26% — current</p>
+    </div>
+    <div class="cb-progress cb-progress--compact" style="--pct: 61%; margin-bottom: var(--space-xl)">
+      <div class="cb-progress__track"><div class="cb-progress__fill"></div><div class="cb-progress__seam"></div></div>
+      <p class="cb-progress__caption">61%</p>
+    </div>
+    <div class="cb-progress cb-progress--compact" style="--pct: 100%">
+      <div class="cb-progress__track"><div class="cb-progress__fill" style="border-radius:var(--radius-xs)"></div></div>
+      <p class="cb-progress__caption">100% — the wall is closed. Drop the seam at full.</p>
+    </div>
+  </div>
+
+  <div class="fxwarn">
+    <p><b>Two numbers to confirm before publication.</b> The USD figures above use an assumed rate of 21 CZK to 1 USD (54M ≈ $2.6M, 14M ≈ $670,000, 40M ≈ $1.9M) — confirm the rate and the rounding convention with the operator. And confirm whether 14M is <i>committed/pledged</i> or <i>received</i>; the label must say which, because a US donor will read "committed" and "raised" very differently.</p>
+  </div>
+
+  <div class="dont">
+    <h3>Do not</h3>
+    <ul>
+      <li>Do not turn this into a thermometer, a bulb, a stack of bricks that fill in, or an animated counter that ticks up on scroll. The congregation gave sacrificially; the graphic should be quiet about it.</li>
+      <li>Do not animate the fill on load beyond the single <code>inline-size</code> transition, and let <code>prefers-reduced-motion</code> kill it.</li>
+      <li>Do not add a deadline, a countdown, or "only X days left". There is no deadline on this project.</li>
+      <li>Do not put the percentage in a large gold figure. Percentages go in ink; gold is the fill only.</li>
+      <li>Do not use the perforation texture anywhere else on the same page except one hero band — it is this component's signature.</li>
+    </ul>
+  </div>
+
+</main>
+</body>
+</html>

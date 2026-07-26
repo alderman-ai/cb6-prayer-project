@@ -1,0 +1,359 @@
+<!-- @dsCard group="Blocks" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sections — CB Dejvice Sanctuary</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; }
+  .page { padding: var(--space-2xl) var(--gutter) 0; max-width: var(--container); margin-inline: auto; }
+  .eyebrow { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted); margin: 0 0 var(--space-sm); }
+  h1.pagetitle { font-size: var(--type-h1-size); font-weight: var(--type-h1-weight); line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking); margin: 0 0 var(--space-md); }
+  .lede { font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-lg); }
+  .note { font-size: var(--type-small-size); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-md); }
+  .rule { height: 2px; width: 56px; background: var(--rule-accent); border: 0; margin: 0 0 var(--space-xl); }
+  code { font-size: 0.8125rem; background: var(--surface-cool); padding: 1px 5px; border-radius: var(--radius-xs); border: 1px solid var(--border); }
+  .caplabel { font-size: 0.6875rem; font-weight: var(--weight-semibold); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin: var(--space-3xl) 0 var(--space-xs); }
+  .demo { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: var(--space-md); }
+
+  /* shared button */
+  .cb-btn { display:inline-flex; align-items:center; justify-content:center; gap:var(--space-sm);
+    padding:0.875rem 1.75rem; font-family:var(--font-sans); font-size:1rem; font-weight:var(--weight-semibold);
+    line-height:1.2; letter-spacing:0.01em; text-decoration:none; border:1px solid transparent;
+    border-radius:var(--radius-pill); cursor:pointer;
+    transition: background-color var(--duration-base) var(--ease), color var(--duration-base) var(--ease),
+                border-color var(--duration-base) var(--ease), box-shadow var(--duration-base) var(--ease); }
+  .cb-btn:focus-visible { outline:none; box-shadow:var(--focus-ring); }
+  .cb-btn--primary { background:var(--color-gold); color:var(--color-ink); border-color:var(--color-gold-deep); box-shadow:var(--shadow-sm); }
+  .cb-btn--primary:hover { background:var(--color-gold-light); box-shadow:var(--shadow-md); }
+  .cb-btn--primary-on-ink { background:var(--color-ink); color:var(--color-gold); border-color:var(--color-gold-deep); }
+  .cb-btn--primary-on-ink:hover { background:var(--color-ink-800); color:var(--color-gold-light); }
+  .cb-btn--primary-on-ink:focus-visible { box-shadow:var(--focus-ring-on-ink); }
+  .cb-btn--lg { padding:1.0625rem 2.25rem; font-size:1.0625rem; }
+
+  /* =========================================================
+     SECTION shell
+     ========================================================= */
+  .cb-section { padding: var(--section-pad-y) var(--gutter); }
+  .cb-section__inner { max-width: var(--container); margin-inline: auto; }
+  .cb-section--warm { background: var(--surface-warm); }
+  .cb-section--cool { background: var(--surface-cool); }
+  .cb-section--ink { background: var(--surface-ink); color: var(--text-on-ink); }
+
+  /* =========================================================
+     SECTION HEADER
+     A short run of ribbing above the eyebrow — the vertical rhythm of the
+     sanctuary's wall panels, used as a structural mark rather than an
+     ornament. It tells you a new part of the argument has started.
+     ========================================================= */
+  .cb-sechead { max-width: 46rem; margin: 0 0 var(--space-2xl); }
+  .cb-sechead__ribbing {
+    block-size: 20px; inline-size: 56px;
+    background-image: var(--pattern-ribbing);
+    background-color: transparent;
+    margin-bottom: var(--space-md);
+  }
+  .cb-sechead__eyebrow {
+    display: flex; align-items: center; gap: var(--space-xs);
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 var(--space-sm);
+  }
+  .cb-sechead__title {
+    font-size: var(--type-h2-size); font-weight: var(--type-h2-weight);
+    line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking);
+    margin: 0; text-wrap: balance;
+  }
+  .cb-sechead__sub {
+    font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading);
+    color: var(--text-muted); max-width: var(--measure); margin: var(--space-md) 0 0;
+    text-wrap: pretty;
+  }
+  .cb-sechead--centred { margin-inline: auto; text-align: center; }
+  .cb-sechead--centred .cb-sechead__ribbing { margin-inline: auto; }
+  .cb-sechead--centred .cb-sechead__eyebrow { justify-content: center; }
+  .cb-sechead--centred .cb-sechead__sub { margin-inline: auto; }
+  .cb-section--ink .cb-sechead__eyebrow { color: var(--color-gold); }
+  .cb-section--ink .cb-sechead__sub { color: rgba(255,255,255,0.72); }
+  .cb-section--ink .cb-sechead__ribbing { background-image: repeating-linear-gradient(90deg, var(--color-ink-600) 0 1px, transparent 1px 6px); }
+
+  /* =========================================================
+     BEFORE / AFTER PAIR
+     Two photographs of the same street corner, same crop, same size.
+     The comparison is the argument, so nothing may differ except the
+     building. The "after" carries the arch; the "before" does not.
+     ========================================================= */
+  .cb-beforeafter { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start; }
+  @media (max-width: 760px) { .cb-beforeafter { grid-template-columns: 1fr; gap: var(--space-xl); } }
+  .cb-ba { margin: 0; }
+  .cb-ba__frame {
+    aspect-ratio: 4 / 3; overflow: hidden; background: var(--surface-cool);
+    border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+  }
+  .cb-ba--after .cb-ba__frame { border-radius: var(--radius-arch); box-shadow: var(--shadow-md); }
+  .cb-ba__frame img { inline-size:100%; block-size:100%; object-fit: cover; display:block; }
+  .cb-ba__tag {
+    display: inline-block; margin: var(--space-sm) 0 var(--space-2xs);
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase; color: var(--text-muted);
+  }
+  .cb-ba--after .cb-ba__tag { color: var(--text); }
+  .cb-ba__cap { font-size: var(--type-small-size); line-height: 1.55; color: var(--text-muted); margin: 0; }
+
+  /* =========================================================
+     TIMELINE / CREDIBILITY
+     The markers are dates, not 01 / 02 / 03. The dates are the evidence —
+     a US reader needs to see that permits are real and recent, and an
+     abstract sequence number would hide exactly the fact that persuades.
+     ========================================================= */
+  .cb-timeline { list-style: none; margin: 0; padding: 0; max-width: 44rem; }
+  .cb-timeline__item {
+    display: grid; grid-template-columns: 9.5rem 1fr; gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+  }
+  .cb-timeline__item:last-child { border-bottom: 1px solid var(--border); }
+  @media (max-width: 560px) { .cb-timeline__item { grid-template-columns: 1fr; gap: var(--space-2xs); } }
+  .cb-timeline__date {
+    font-size: 0.9375rem; font-weight: var(--weight-semibold);
+    font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
+    color: var(--text); margin: 0;
+  }
+  .cb-timeline__date small { display: block; font-weight: var(--weight-regular); font-size: var(--type-small-size); color: var(--text-faint); margin-top: 2px; }
+  .cb-timeline__body { margin: 0; }
+  .cb-timeline__what { font-size: 1.0625rem; font-weight: var(--weight-semibold); margin: 0 0 var(--space-2xs); }
+  .cb-timeline__detail { font-size: var(--type-body-size); line-height: var(--type-body-leading); color: var(--text-muted); margin: 0; }
+  .cb-timeline__item--now .cb-timeline__date::before {
+    content: ""; display: inline-block; inline-size: 6px; block-size: 6px;
+    border-radius: 50%; background: var(--color-gold-deep);
+    margin-inline-end: 8px; vertical-align: 0.15em;
+  }
+
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  .cb-footer { background: var(--surface-ink); color: var(--text-on-ink); padding: var(--space-3xl) var(--gutter) var(--space-xl); }
+  .cb-footer__inner { max-width: var(--container); margin-inline: auto; }
+  .cb-footer__top {
+    display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: var(--space-2xl); align-items: start;
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-ink-600);
+  }
+  @media (max-width: 760px) { .cb-footer__top { grid-template-columns: 1fr; gap: var(--space-xl); } }
+  .cb-footer__ask { font-size: var(--type-h2-size); font-weight: var(--type-h2-weight); line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking); margin: 0 0 var(--space-md); max-width: 22ch; text-wrap: balance; }
+  .cb-footer__ask-sub { font-size: var(--type-body-size); line-height: var(--type-body-leading); color: rgba(255,255,255,0.72); max-width: var(--measure-tight); margin: 0 0 var(--space-lg); }
+  .cb-footer__contacts { display: grid; gap: var(--space-lg); }
+  .cb-footer__contact { margin: 0; }
+  .cb-footer__contact dt {
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--color-gold); margin: 0 0 var(--space-2xs);
+  }
+  .cb-footer__contact dd { margin: 0; font-size: 1.0625rem; font-weight: var(--weight-medium); }
+  .cb-footer__contact dd a { color: var(--color-paper); text-decoration: none; box-shadow: inset 0 -1px 0 0 var(--color-ink-600); }
+  .cb-footer__contact dd a:hover { box-shadow: inset 0 -2px 0 0 var(--color-gold); }
+  .cb-footer__contact dd a:focus-visible { outline: none; box-shadow: var(--focus-ring-on-ink); border-radius: var(--radius-xs); }
+  .cb-footer__contact dd small { display: block; font-size: var(--type-small-size); font-weight: var(--weight-regular); color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+  .cb-footer__bottom {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: var(--space-md); padding-top: var(--space-xl);
+  }
+  .cb-footer__brand { display: flex; align-items: center; gap: var(--space-sm); }
+  .cb-footer__brand img { height: 26px; width: auto; display: block; }
+  .cb-footer__brand .stand-in { display:flex; align-items:center; gap:8px; color:#fff; font-size:0.6875rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; }
+  .cb-footer__brand .stand-in i { display:block; width:16px; height:16px; border-radius:2px; background:var(--color-gold); }
+  .cb-footer__fine { font-size: var(--type-small-size); color: rgba(255,255,255,0.55); margin: 0; }
+  .cb-footer__fine a { color: rgba(255,255,255,0.8); text-decoration: none; }
+  .cb-footer__fine a:hover { color: #fff; }
+
+  /* image placeholder */
+  .ph { inline-size:100%; block-size:100%; display:grid; place-items:center; text-align:center; padding: var(--space-md);
+        background: var(--surface-cool); background-image: var(--pattern-ribbing); }
+  .ph__inner { background: rgba(255,255,255,0.9); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); border: 1px solid var(--border-strong); max-width: 92%; }
+  .ph__file { font-size: 0.875rem; font-weight: var(--weight-semibold); margin: 0 0 3px; word-break: break-all; }
+  .ph__meta { font-size: 0.75rem; color: var(--text-muted); margin: 0; line-height: 1.45; }
+
+  .dont { border-left: 3px solid var(--color-ink); background: var(--surface-cool); border-radius: var(--radius-sm); padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-3xl); }
+  .dont h3 { margin: 0 0 var(--space-xs); font-size: var(--type-h3-size); }
+  .dont ul { margin: 0; padding-left: 1.1em; }
+  .dont li { font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2xs); }
+</style>
+</head>
+<body class="cb">
+
+<div class="page">
+  <p class="eyebrow">Blocks</p>
+  <h1 class="pagetitle">Sections</h1>
+  <hr class="rule">
+  <p class="lede">Four repeating structures: the section header, the before/after pair, the dated timeline, and the footer. Grounds alternate paper → cream → paper → stone so that no two adjacent sections look alike, and the only ink panel on the page is the footer.</p>
+
+  <p class="caplabel">Section header — left aligned, on cream</p>
+</div>
+
+<section class="cb-section cb-section--warm">
+  <div class="cb-section__inner">
+    <header class="cb-sechead">
+      <div class="cb-sechead__ribbing" aria-hidden="true"></div>
+      <p class="cb-sechead__eyebrow">
+        <svg width="11" height="14" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="2.8" stroke-linecap="round"/></svg>
+        Why it costs what it costs
+      </p>
+      <h2 class="cb-sechead__title">Most of the hall has to be dug out beneath the existing house.</h2>
+      <p class="cb-sechead__sub">Prague regulations cap how high the building on Evropská can go, so the sanctuary is excavated below ground and tucked under the house that is already there. Excavation, not finishes, is what makes a 54M Kč project out of a room with 200 chairs in it.</p>
+    </header>
+  </div>
+</section>
+
+<div class="page">
+  <p class="caplabel">Section header — centred, on paper</p>
+</div>
+
+<section class="cb-section">
+  <div class="cb-section__inner">
+    <header class="cb-sechead cb-sechead--centred">
+      <div class="cb-sechead__ribbing" aria-hidden="true"></div>
+      <p class="cb-sechead__eyebrow">
+        <svg width="11" height="14" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="2.8" stroke-linecap="round"/></svg>
+        The corner today, and the corner planned
+      </p>
+      <h2 class="cb-sechead__title">The same street corner, twice</h2>
+      <p class="cb-sechead__sub">Identical crop, identical size. Only the building changes — that is the whole point of the pair, so nothing else may differ between the two frames.</p>
+    </header>
+
+    <div class="cb-beforeafter">
+      <figure class="cb-ba cb-ba--before">
+        <div class="cb-ba__frame">
+          <!-- <img src="../Modlitebna Images/01_current-building-exterior-photo.jpg" alt="The existing church building at Evropská 88 today, photographed from across the street."> -->
+          <div class="ph"><div class="ph__inner">
+            <p class="ph__file">01_current-building-exterior-photo.jpg</p>
+            <p class="ph__meta">3948 × 2954 · print-safe · crop 4:3 to match the pair</p>
+          </div></div>
+        </div>
+        <span class="cb-ba__tag">Today</span>
+        <p class="cb-ba__cap">Evropská 88 as it stands. No entrance a passer-by would recognise as a church.</p>
+      </figure>
+
+      <figure class="cb-ba cb-ba--after">
+        <div class="cb-ba__frame">
+          <!-- <img src="../Modlitebna Images/02_proposed-design-overlay-on-photo.jpg" alt="The same photograph with the proposed sanctuary rendered in: the terracotta house plus a new white perforated-stone entrance with pointed-arch glazing."> -->
+          <div class="ph"><div class="ph__inner">
+            <p class="ph__file">02_proposed-design-overlay-on-photo.jpg</p>
+            <p class="ph__meta">3949 × 2954 · print-safe · same crop, same scale · gets the arch radius</p>
+          </div></div>
+        </div>
+        <span class="cb-ba__tag">Planned</span>
+        <p class="cb-ba__cap">The new entrance in white perforated stone, with the church's name on the wall and the doors opening onto the pavement.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <p class="caplabel">Timeline / credibility — on stone</p>
+  <p class="note">Markers are real dates because the dates are the evidence: the permits are recent and the congregation's own vote is documented. A generic 01 / 02 / 03 sequence would hide the fact that persuades. Update these from cb6.cz/modlitebna before publishing — this block goes stale.</p>
+</div>
+
+<section class="cb-section cb-section--cool">
+  <div class="cb-section__inner">
+    <header class="cb-sechead">
+      <div class="cb-sechead__ribbing" aria-hidden="true"></div>
+      <p class="cb-sechead__eyebrow">
+        <svg width="11" height="14" viewBox="0 0 24 32" fill="none" aria-hidden="true"><path d="M2 31 V20 Q2 8 12 2 Q22 8 22 20 V31" stroke="#C9A24E" stroke-width="2.8" stroke-linecap="round"/></svg>
+        This is not an idea. It is a permitted project.
+      </p>
+      <h2 class="cb-sechead__title">Where it stands</h2>
+    </header>
+
+    <ol class="cb-timeline">
+      <li class="cb-timeline__item">
+        <p class="cb-timeline__date">29 June 2024</p>
+        <div class="cb-timeline__body">
+          <p class="cb-timeline__what">Application filed with the city</p>
+          <p class="cb-timeline__detail">The zoning application for the new sanctuary went in to Prague 6.</p>
+        </div>
+      </li>
+      <li class="cb-timeline__item">
+        <p class="cb-timeline__date">17 July 2025</p>
+        <div class="cb-timeline__body">
+          <p class="cb-timeline__what">Zoning decision granted</p>
+          <p class="cb-timeline__detail">A valid <span lang="cs">územní rozhodnutí</span> is in hand — the city has approved what may be built on the site.</p>
+        </div>
+      </li>
+      <li class="cb-timeline__item">
+        <p class="cb-timeline__date">5 October 2025</p>
+        <div class="cb-timeline__body">
+          <p class="cb-timeline__what">The congregation voted to proceed</p>
+          <p class="cb-timeline__detail">100% of the members present voted to continue, and have committed 14M Kč of their own toward the cost.</p>
+        </div>
+      </li>
+      <li class="cb-timeline__item cb-timeline__item--now">
+        <p class="cb-timeline__date">October 2025<small>in progress</small></p>
+        <div class="cb-timeline__body">
+          <p class="cb-timeline__what">Building-permit documentation under way</p>
+          <p class="cb-timeline__detail">The architect is preparing the full permit set. Construction begins when the permit is issued and the funding is in place.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="page">
+  <p class="caplabel">Footer — the one ink panel on the page</p>
+</div>
+
+<footer class="cb-footer">
+  <div class="cb-footer__inner">
+    <div class="cb-footer__top">
+      <div>
+        <h2 class="cb-footer__ask">Forty million koruna to go, and no deadline but the building itself.</h2>
+        <p class="cb-footer__ask-sub">Every gift goes to the sanctuary fund and nowhere else. If you would like to see the accounts, the drawings, or the permit, ask — the church will send them.</p>
+        <a class="cb-btn cb-btn--primary cb-btn--lg" href="#give">Give to the Sanctuary</a>
+      </div>
+
+      <dl class="cb-footer__contacts">
+        <div class="cb-footer__contact">
+          <dt>The project</dt>
+          <dd><a href="mailto:modlitebna@cb6.cz">modlitebna@cb6.cz</a><small>Plans, drawings, construction questions</small></dd>
+        </div>
+        <div class="cb-footer__contact">
+          <dt>Tax receipts</dt>
+          <dd><a href="mailto:hospodar@cb6.cz">hospodar@cb6.cz</a><small>Confirmation of gifts and receipts</small></dd>
+        </div>
+        <div class="cb-footer__contact">
+          <dt>Full project detail</dt>
+          <dd><a href="https://www.cb6.cz/modlitebna">cb6.cz/modlitebna</a><small>Floor plans, sections and the permit timeline</small></dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="cb-footer__bottom">
+      <div class="cb-footer__brand">
+        <!-- <img src="../Brand/logo-var1.png" alt="Církev bratrská Dejvice"> — the white lockup belongs here, on ink -->
+        <span class="stand-in"><i></i> Dejvice · Církev bratrská</span>
+      </div>
+      <p class="cb-footer__fine">Evropská 88, Praha 6 · <a href="https://www.cb6.cz">cb6.cz</a> · Renderings © the church and its architect</p>
+    </div>
+  </div>
+</footer>
+
+<div class="page">
+  <div class="dont">
+    <h3>Do not</h3>
+    <ul>
+      <li>Do not run two ink sections on one page. The footer is the dark moment; a second one flattens it.</li>
+      <li>Do not crop the before and after differently, or shrink one of them. The pair only works if the frames are identical.</li>
+      <li>Do not renumber the timeline as 01 / 02 / 03. The dates are the argument.</li>
+      <li>Do not let the timeline go stale — re-check cb6.cz/modlitebna before each publication and update or remove the "in progress" marker.</li>
+      <li>Do not add social icons, a newsletter box, or a sitemap to the footer. Three contacts and one link is the whole footer.</li>
+      <li>Do not use the ribbing mark more than once per section header. It is punctuation, not a border.</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

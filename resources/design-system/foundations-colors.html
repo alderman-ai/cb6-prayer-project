@@ -1,0 +1,303 @@
+<!-- @dsCard group="Foundations" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colour — CB Dejvice Sanctuary</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; }
+  .page { padding: var(--space-2xl) var(--gutter) var(--space-4xl); max-width: var(--container); margin-inline: auto; }
+
+  .eyebrow {
+    font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight);
+    letter-spacing: var(--type-eyebrow-tracking); text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 var(--space-sm);
+  }
+  h1 {
+    font-size: var(--type-h1-size); font-weight: var(--type-h1-weight);
+    line-height: var(--type-h1-leading); letter-spacing: var(--type-h1-tracking);
+    margin: 0 0 var(--space-md);
+  }
+  h2 {
+    font-size: var(--type-h2-size); font-weight: var(--type-h2-weight);
+    line-height: var(--type-h2-leading); letter-spacing: var(--type-h2-tracking);
+    margin: var(--space-3xl) 0 var(--space-xs);
+  }
+  .lede { font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-leading); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-lg); }
+  .note { font-size: var(--type-small-size); color: var(--text-muted); max-width: var(--measure); margin: 0 0 var(--space-lg); }
+
+  .rule { height: 2px; width: 56px; background: var(--rule-accent); border: 0; margin: 0 0 var(--space-xl); }
+
+  /* ---- swatch grid ---- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--space-md); margin-top: var(--space-lg); }
+  .sw {
+    border: 1px solid var(--border); border-radius: var(--radius-md);
+    overflow: hidden; background: var(--surface); box-shadow: var(--shadow-xs);
+    display: flex; flex-direction: column;
+  }
+  .sw__chip { height: 84px; display: flex; align-items: flex-end; padding: var(--space-xs) var(--space-sm); }
+  .sw__chip span { font-size: 0.6875rem; font-weight: var(--weight-semibold); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.75; }
+  .sw__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
+  .sw__name { font-weight: var(--weight-semibold); font-size: 0.9375rem; margin: 0 0 var(--space-3xs); }
+  .sw__hex {
+    font-size: var(--type-small-size); font-weight: var(--weight-medium);
+    letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 var(--space-xs);
+    font-variant-numeric: tabular-nums;
+  }
+  .sw__use { font-size: 0.8125rem; line-height: 1.5; color: var(--text-muted); margin: 0; }
+  .sw--outline .sw__chip { box-shadow: inset 0 0 0 1px var(--border-strong); }
+
+  /* ---- contrast table ---- */
+  table { border-collapse: collapse; width: 100%; margin-top: var(--space-lg); font-size: var(--type-small-size); }
+  caption { text-align: left; color: var(--text-muted); font-size: var(--type-small-size); padding-bottom: var(--space-xs); }
+  th, td { text-align: left; padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--border); }
+  th { font-weight: var(--weight-semibold); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+  td.num { font-variant-numeric: tabular-nums; font-weight: var(--weight-semibold); }
+  .pass { color: var(--color-ink); }
+  .fail { color: var(--color-ink); font-weight: var(--weight-bold); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: var(--radius-pill); font-size: 0.6875rem; font-weight: var(--weight-semibold); letter-spacing: 0.08em; text-transform: uppercase; }
+  .badge--ok { background: var(--color-oak-200); color: var(--color-ink); }
+  .badge--no { background: var(--color-ink); color: var(--color-paper); }
+
+  /* ---- pairing demos ---- */
+  .pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-md); margin-top: var(--space-lg); }
+  .pair { padding: var(--space-lg); border-radius: var(--radius-md); border: 1px solid transparent; }
+  .pair h3 { margin: 0 0 var(--space-2xs); font-size: var(--type-h3-size); font-weight: var(--type-h3-weight); }
+  .pair p { margin: 0; font-size: var(--type-small-size); line-height: 1.55; }
+  .pair--ink { background: var(--surface-ink); color: var(--text-on-ink); }
+  .pair--ink p { color: rgba(255,255,255,0.78); }
+  .pair--gold { background: var(--color-gold); color: var(--color-ink); }
+  .pair--gold p { color: rgba(38,70,83,0.8); }
+  .pair--warm { background: var(--surface-warm-strong); border-color: var(--border-warm); }
+  .pair--warm p { color: var(--text-muted); }
+  .pair--cool { background: var(--surface-cool); border-color: var(--border); }
+  .pair--cool p { color: var(--text-muted); }
+
+  /* ---- textures ---- */
+  .textures { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-md); margin-top: var(--space-lg); }
+  .tex { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+  .tex__swatch { height: 96px; }
+  .tex__perf { background-image: var(--pattern-perforation); background-size: var(--pattern-perforation-size); background-color: var(--color-cream-50); }
+  .tex__perf-stone { background-image: var(--pattern-perforation-stone); background-size: var(--pattern-perforation-size); background-color: var(--color-paper); }
+  .tex__rib { background-image: var(--pattern-ribbing); background-color: var(--color-paper); }
+  .tex__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
+  .tex__body p { margin: var(--space-2xs) 0 0; font-size: 0.8125rem; line-height: 1.5; color: var(--text-muted); }
+  .tex__body strong { font-size: 0.9375rem; }
+
+  /* ---- forbidden ---- */
+  .forbidden { border: 1px solid var(--border-strong); border-left: 3px solid var(--color-ink); border-radius: var(--radius-sm); padding: var(--space-lg); background: var(--surface-cool); margin-top: var(--space-lg); }
+  .forbidden h3 { margin: 0 0 var(--space-xs); font-size: var(--type-h3-size); }
+  .forbidden ul { margin: 0; padding-left: 1.1em; }
+  .forbidden li { font-size: var(--type-small-size); line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2xs); }
+  .forbidden code { font-size: 0.8125rem; background: var(--color-paper); padding: 1px 5px; border-radius: var(--radius-xs); border: 1px solid var(--border); color: var(--text); }
+
+  .refonly { display: flex; gap: var(--space-md); align-items: center; margin-top: var(--space-lg); padding: var(--space-md); border: 1px dashed var(--border-strong); border-radius: var(--radius-md); }
+  .refonly__chip { width: 64px; height: 64px; border-radius: var(--radius-sm); background: var(--color-facade-terracotta); flex: none; }
+  .refonly p { margin: 0; font-size: var(--type-small-size); color: var(--text-muted); line-height: 1.55; }
+</style>
+</head>
+<body class="cb">
+<main class="page">
+
+  <p class="eyebrow">Foundations</p>
+  <h1>Colour</h1>
+  <hr class="rule">
+  <p class="lede">Four confirmed brand colours, plus derived families that come out of the building itself: the pale oak of the seating, the grey ribbed wall panels, the terrazzo floor. Ink carries every word. Gold is an accent and a fill — never a word on paper.</p>
+
+  <h2>Brand core</h2>
+  <p class="note">Confirmed against the compiled Tailwind theme on cb6.cz. These four are the only colours the client has actually shipped.</p>
+  <div class="swatches">
+
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-ink); color:#fff"><span>Ink</span></div>
+      <div class="sw__body">
+        <p class="sw__name">Ink</p>
+        <p class="sw__hex">#264653 · --color-ink</p>
+        <p class="sw__use">All body and heading text. Dark panels. Button labels on gold. 10.1:1 on paper.</p>
+      </div>
+    </div>
+
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-gold); color: var(--color-ink)"><span>Gold</span></div>
+      <div class="sw__body">
+        <p class="sw__name">Gold</p>
+        <p class="sw__hex">#E9C46A · --color-gold</p>
+        <p class="sw__use">The single CTA fill, reserved. Accent rules, progress fill, the logo mark. Never text on paper.</p>
+      </div>
+    </div>
+
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-gold-light); color: var(--color-ink)"><span>Gold light</span></div>
+      <div class="sw__body">
+        <p class="sw__name">Gold, light</p>
+        <p class="sw__hex">#FFD56E · --color-gold-light</p>
+        <p class="sw__use">Second accent block. The lit edge of a gold gradient. Hover lift on the primary button.</p>
+      </div>
+    </div>
+
+    <div class="sw sw--outline">
+      <div class="sw__chip" style="background: var(--color-paper); color: var(--color-ink)"><span>Paper</span></div>
+      <div class="sw__body">
+        <p class="sw__name">Paper</p>
+        <p class="sw__hex">#FFFFFF · --color-paper</p>
+        <p class="sw__use">The default ground everywhere. Generous, unfilled, quiet. Whitespace is the point.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>Ink family</h2>
+  <p class="note">Derived steps of #264653 for hierarchy and state. Only the first three are safe for text.</p>
+  <div class="swatches">
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-ink-900); color:#fff"><span>900</span></div>
+      <div class="sw__body"><p class="sw__name">Ink 900</p><p class="sw__hex">#16303A</p><p class="sw__use">Pressed state on ink surfaces. Deepest footer panel.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-ink-800); color:#fff"><span>800</span></div>
+      <div class="sw__body"><p class="sw__name">Ink 800</p><p class="sw__hex">#1E3C47</p><p class="sw__use">Hover on ink-filled buttons and panels.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-ink-600); color:#fff"><span>600</span></div>
+      <div class="sw__body"><p class="sw__name">Ink 600</p><p class="sw__hex">#3A6272</p><p class="sw__use">Dividers on ink panels. Secondary UI strokes.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-ink-muted); color:#fff"><span>Muted</span></div>
+      <div class="sw__body"><p class="sw__name">Ink, muted</p><p class="sw__hex">#5A7480</p><p class="sw__use">Secondary body copy, sub-headings, labels. 4.96:1 — AA at any size.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-ink-faint); color: var(--color-ink)"><span>Faint</span></div>
+      <div class="sw__body"><p class="sw__name">Ink, faint</p><p class="sw__hex">#93A6AE</p><p class="sw__use">Image credits, disabled controls, hairline captions. <strong>Not for body copy.</strong></p></div>
+    </div>
+  </div>
+
+  <h2>Oak &amp; cream</h2>
+  <p class="note">Warm tints derived from the gold. These carry the pale-oak seating and the daylight in the renders into the page without ever asking the gold to work as text.</p>
+  <div class="swatches">
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-gold-deep); color: var(--color-ink)"><span>Deep</span></div>
+      <div class="sw__body"><p class="sw__name">Gold, deep</p><p class="sw__hex">#C9A24E</p><p class="sw__use">Gold that survives at 1px: underlines, hairline rules on paper. Still not text.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-oak-300); color: var(--color-ink)"><span>Oak 300</span></div>
+      <div class="sw__body"><p class="sw__name">Oak 300</p><p class="sw__hex">#E7D3A8</p><p class="sw__use">Warm borders. The perforation dots. Card edges on cream.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-oak-200); color: var(--color-ink)"><span>Oak 200</span></div>
+      <div class="sw__body"><p class="sw__name">Oak 200</p><p class="sw__hex">#F2E4C4</p><p class="sw__use">Quote/verse fill. Giving-details card. Gentle highlight behind a figure.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-cream-100); color: var(--color-ink)"><span>Cream 100</span></div>
+      <div class="sw__body"><p class="sw__name">Cream 100</p><p class="sw__hex">#FAF3E4</p><p class="sw__use">Warm section ground. Use for at most two sections per page.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-cream-50); color: var(--color-ink)"><span>Cream 50</span></div>
+      <div class="sw__body"><p class="sw__name">Cream 50</p><p class="sw__hex">#FDFAF4</p><p class="sw__use">The default alternate to paper. Barely there — that is intentional.</p></div>
+    </div>
+  </div>
+
+  <h2>Stone</h2>
+  <p class="note">Off the grey ribbed wall panelling and the terrazzo floor. Structural, never decorative.</p>
+  <div class="swatches">
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-stone-500); color:#fff"><span>500</span></div>
+      <div class="sw__body"><p class="sw__name">Stone 500</p><p class="sw__hex">#8E948F</p><p class="sw__use">Rib lines at full strength. Decorative texture only.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-stone-300); color: var(--color-ink)"><span>300</span></div>
+      <div class="sw__body"><p class="sw__name">Stone 300</p><p class="sw__hex">#C9CCC6</p><p class="sw__use">Strong borders, rib lines, table rules that need to hold.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-stone-200); color: var(--color-ink)"><span>Stone 200</span></div>
+      <div class="sw__body"><p class="sw__name">Stone 200</p><p class="sw__hex">#E2E4DF</p><p class="sw__use">The default border. Card edges, dividers, input strokes.</p></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background: var(--color-stone-100); color: var(--color-ink)"><span>Stone 100</span></div>
+      <div class="sw__body"><p class="sw__name">Stone 100</p><p class="sw__hex">#F2F3F0</p><p class="sw__use">Cool section ground. Image placeholder fill before the render loads.</p></div>
+    </div>
+  </div>
+
+  <h2>Contrast</h2>
+  <table>
+    <caption>WCAG 2.1 ratios, normal text. Checked, not assumed.</caption>
+    <thead>
+      <tr><th>Foreground</th><th>Ground</th><th>Ratio</th><th>Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ink #264653</td><td>Paper #FFFFFF</td><td class="num">10.1</td><td><span class="badge badge--ok">AAA</span></td></tr>
+      <tr><td>Ink muted #5A7480</td><td>Paper #FFFFFF</td><td class="num">4.96</td><td><span class="badge badge--ok">AA</span></td></tr>
+      <tr><td>Ink #264653</td><td>Gold #E9C46A</td><td class="num">6.1</td><td><span class="badge badge--ok">AA — primary CTA</span></td></tr>
+      <tr><td>Gold #E9C46A</td><td>Ink #264653</td><td class="num">6.1</td><td><span class="badge badge--ok">AA — inverse CTA</span></td></tr>
+      <tr><td>Paper #FFFFFF</td><td>Ink #264653</td><td class="num">10.1</td><td><span class="badge badge--ok">AAA</span></td></tr>
+      <tr><td class="fail">Gold #E9C46A</td><td>Paper #FFFFFF</td><td class="num">1.7</td><td><span class="badge badge--no">Never</span></td></tr>
+      <tr><td class="fail">Gold light #FFD56E</td><td>Paper #FFFFFF</td><td class="num">1.5</td><td><span class="badge badge--no">Never</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Approved pairings</h2>
+  <div class="pairs">
+    <div class="pair pair--ink">
+      <h3>Ink panel</h3>
+      <p>Footer, trust block, the one dark moment on the page. Gold reads beautifully here — this is where gold is allowed to be a word.</p>
+    </div>
+    <div class="pair pair--gold">
+      <h3>Gold fill</h3>
+      <p>The primary CTA and nothing else. If gold appears as a filled block twice on a page, one of them is wrong.</p>
+    </div>
+    <div class="pair pair--warm">
+      <h3>Cream ground</h3>
+      <p>Verse blocks, giving details, the progress section. Warmth without weight.</p>
+    </div>
+    <div class="pair pair--cool">
+      <h3>Stone ground</h3>
+      <p>Image placeholders, timeline, quiet structural blocks. Cooler and more factual than cream.</p>
+    </div>
+  </div>
+
+  <h2>Textures</h2>
+  <p class="note">Two motifs, taken directly off the building. Each appears at most once or twice per artefact.</p>
+  <div class="textures">
+    <div class="tex">
+      <div class="tex__swatch tex__perf"></div>
+      <div class="tex__body">
+        <strong>Perforation, warm</strong>
+        <p><code>--pattern-perforation</code> · The punched white stone screen on the new entrance. Signature motif. Reserved for the unfunded remainder of the progress bar and one hero band.</p>
+      </div>
+    </div>
+    <div class="tex">
+      <div class="tex__swatch tex__perf-stone"></div>
+      <div class="tex__body">
+        <strong>Perforation, stone</strong>
+        <p><code>--pattern-perforation-stone</code> · Cooler variant for use over stone grounds or where the warm dots read as noise.</p>
+      </div>
+    </div>
+    <div class="tex">
+      <div class="tex__swatch tex__rib"></div>
+      <div class="tex__body">
+        <strong>Ribbing</strong>
+        <p><code>--pattern-ribbing</code> · The grey vertical wall panelling inside the sanctuary. Section dividers and the thin vertical rhythm above a section header.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="refonly">
+    <div class="refonly__chip" aria-hidden="true"></div>
+    <p><strong>#E08A62 — reference only, not a UI colour.</strong> This is the existing house's terracotta façade as it appears in the renders. It is documented so that imagery and interface do not fight each other. Never use it as a fill, a rule, or text.</p>
+  </div>
+
+  <div class="forbidden">
+    <h3>Do not</h3>
+    <ul>
+      <li>Do not use <code>#E76F51</code> or any "cred" value. It was inferred from a malformed five-digit hex in the site CSS and has never been confirmed by the client.</li>
+      <li>Do not set gold text on paper at any size. 1.7:1. Put the gold behind ink instead.</li>
+      <li>Do not use gold as a second fill colour on the same page as the CTA. One gold block, one meaning: give.</li>
+      <li>Do not introduce a red, a green, or a success/error hue. Nothing on this page reports a system state.</li>
+      <li>Do not use <code>#1E87F0</code> from <code>logo.svg</code> — that asset is legacy and unreferenced on the live site.</li>
+    </ul>
+  </div>
+
+</main>
+</body>
+</html>
