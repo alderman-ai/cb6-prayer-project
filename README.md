@@ -1,9 +1,7 @@
 # CB6 Prayer Project
 
 Fundraising materials for **CB Dejvice** (Církev bratrská v Praze 6 — Dejvicích) and their campaign
-to build a new sanctuary — a permanent home for Sunday worship — on their property on Evropská
-Street, Prague 6. Project cost 54 million CZK (~$2.55M); members have committed 14M CZK; the
-campaign seeks the remaining 40M CZK (~$1.89M).
+to build a new sanctuary — a permanent home for Sunday worship — on their property on Evropská Street.
 
 The campaign is a chain: **email → one-page brochure (PDF) → landing page → donation**. Each piece
 has one job: move the reader to the next piece. Everything exists in **English** (primary audience:
@@ -15,23 +13,16 @@ warm US contacts of missionaries and partner institutions) and **Czech**.
 
 Everything you need is linked from this section. You do not need to open any code.
 
-## 1. There are two versions of the website — pick one
+## 1. I threw a few extra tokens at some websites in case it's helpful. it won't hurt my feelings if you don't use them, but they are designed with marketing best practices in mind to potentially increase donation converstions. There are two versions of the website.
 
-Both versions contain the same content, in both English and Czech. They exist because it wasn't
-settled where the page would ultimately live.
+Both versions contain the same content, in both English and Czech. I included a stand alone version hosted on vercel in case you decide to create a standalone landing page (and also I started the creation process before you confirmed it will be a subdomain of main site). 
 
 **Version A — a page on your existing website.**
 `deliverables/church-site-page/` — `index-cz.html` and `index-en.html`. These are complete, ready to
-publish pages. Each is a single file with the images, fonts and styling already built in, so there
-are no other files to upload. Your webmaster can drop them straight onto the existing site — either
-as a page at an address like `cb6.cz/modlitebna-sbirka`, or on the `modlitebna.cb6.cz` subdomain.
-Deployment instructions are in that folder's README.
+publish pages. Well, at least that's what the robots tell me. Each is a single file with the images, fonts and styling already built in, so there
+are no other files to upload. You can <probably?> drop them straight onto the existing site <deleting all the condescending robot talk questioning your coding abilities>
 
-*A note on your site's technology:* cb6.cz is a custom-built React (Next.js) application. These pages
-are plain HTML so they can be published without a developer. If your developer would rather have them
-as native React pages inside the existing app, they can convert them — step-by-step instructions are
-in the folder's README, and the React source in `site/` is directly reusable. **Alex can also do that
-conversion on request.**
+I asked the robots to confirm the frontend language before writing the drop in site. it detected react and wrote html. fun. but supposedly an easy fix. the robots gave you a guide in the readme lol
 
 **Version B — a standalone site on its own web address.**
 `site/` — the same landing page built as a modern web application and already live at
@@ -52,10 +43,7 @@ The email copy lives in Google Docs. **Anyone with the link can edit them** — 
 Each contains the subject line options, the preheader, and the full body, with `{{PLACEHOLDERS}}`
 where the sender and recipient names go.
 
-**Edit them freely.** Change any wording you like, directly in the document. Once you're happy,
-tell Alex — **the revised text can be pushed back into the website and the brochures in minutes.**
-The copy in the documents is the single source everything else is built from, so a change made once
-in the document flows through to every other piece.
+**Edit them freely.** Change any wording you like, directly in the document. Tag me in the comments if you want a a second opinion on the English version. The cz version youre on you're own :)
 
 ## 3. The brochures — leave comments, don't rewrite
 
@@ -89,15 +77,11 @@ like, is in `research/US Tax Deductibility.md`.
 
 ## 5. Also worth confirming before wide distribution
 
-- **Bank name.** "Raiffeisenbank" is inferred from bank code 5500 in your published account
-  1031051032/5500. Please confirm, or it will be removed.
-- **Image permission.** Written permission to reuse the architect's renders is assumed but not
-  documented.
-- **A print-resolution logo.** The best available is a 514px image that only works on dark
-  backgrounds.
-- **Where the page will live.** `modlitebna.cb6.cz` currently serves your own site, so the Czech
-  QR code and the printed address point there. If the campaign page is meant to take over that
-  address, the QR codes stay correct. If not, they need regenerating — a quick change.
+- **Image permission.** Written permission to reuse the architect's renders is assumed but not documented.
+- **A print-resolution logo.** The best available is a 514px image that only works on dark backgrounds.
+
+(I also don't remember where the qr codes point to, probably the vercel versions because the subdomain isn't live yet I don't think. Easy fix, let me know if you need me to do it.
+
 
 ---
 
