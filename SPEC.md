@@ -32,7 +32,7 @@ found in Resources/
 
 * **CB Dejvice one-pager text.md:** handed over to me as a rough draft written by a non professional. Treat information as accurate and use information
 * **Church fundraising one-pager.eml:** handed over to me as a rough draft written by a non professional. Treat information as accurate and use information
-* **Michael Trezzi email 2026-07-26 — updated pictures + domain.jpg** *(added mid-run by operator)*: client follow-up email. Two facts: (1) most up-to-date pictures live in a shared Drive folder — downloaded to **Updated Pictures/** (17 files + `PICTURES NOTE.md` inventory; the sal_10x renders are newer and higher-res than the website set and are preferred for hero/print use; two AI-generated files flagged do-not-use); (2) **the web will reside at `modlitebna.cb6.cz`** (see OUTPUTS note).
+* **(redacted) email 2026-07-26 — updated pictures + domain.jpg** *(added mid-run by operator)*: client follow-up email. Two facts: (1) most up-to-date pictures live in a shared Drive folder — downloaded to **Updated Pictures/** (17 files + `PICTURES NOTE.md` inventory; the sal_10x renders are newer and higher-res than the website set and are preferred for hero/print use; two AI-generated files flagged do-not-use); (2) **the web will reside at `modlitebna.cb6.cz`** (see OUTPUTS note).
 
 ## MODELS
 
@@ -90,7 +90,7 @@ Make sure all INITIAL RESEARCH subagents have finished before beginning to creat
   
   NOTE: it is unclear if the landing page will be hosted as a subdomain of the main site or as a stand alone page via vercel. If the latter, I do not yet have the domain yet, so it should be prepared in vercel and I will manually move it to the custom domain IFF needed. Title the vercel versions: cb6-en & cb6-cz
   
-  *(RESOLVED mid-run 2026-07-26, per Michael Trezzi email: the web will reside at **`modlitebna.cb6.cz`** — a subdomain of the main site. Plan: Vercel deploys `cb6-en`/`cb6-cz` are built and deployed as specified and serve as the working preview; printed/PDF materials carry the permanent URL where safe — see ASSISTANT DECISIONS for the QR-target call.)*
+  *(RESOLVED mid-run 2026-07-26, per (redacted) email: the web will reside at **`modlitebna.cb6.cz`** — a subdomain of the main site. Plan: Vercel deploys `cb6-en`/`cb6-cz` are built and deployed as specified and serve as the working preview; printed/PDF materials carry the permanent URL where safe — see ASSISTANT DECISIONS for the QR-target call.)*
 
 ## FUTURE HITL COPY AND DESIGN REVISION
 
@@ -127,7 +127,7 @@ Asked by the assistant during the pre-flight spec review (2026-07-26), answered 
 **Q7 — Google Docs upload.** (Assistant flagged the Chrome-automation upload into Google Docs as a residual risk.)
 **A:** No Google Docs upload needed. Put the email DOCX files in Deliverables/ and the operator will add them to Google Docs manually.
 
-**Q8 — Mid-run operator addendum (2026-07-26 ~23:05, screenshot in Resources/).** Client email from Michael Trezzi: updated pictures in a shared Drive folder, and the web will reside at `modlitebna.cb6.cz`.
+**Q8 — Mid-run operator addendum (2026-07-26 ~23:05, screenshot in Resources/).** Client email from (redacted): updated pictures in a shared Drive folder, and the web will reside at `modlitebna.cb6.cz`.
 **Propagated:** pictures downloaded to `Resources/Updated Pictures/` (inventoried in `PICTURES NOTE.md`; sal_10x renders now preferred for heroes/print; two AI-generated files excluded); INITIAL RESOURCES + BRANDING AND MEDIA + OUTPUTS sections updated retroactively; landing-page copy already uses `{{LANDING_URL}}` placeholders, resolved at build time to the permanent domain (QR-target details in ASSISTANT DECISIONS).
 
 ## ASSISTANT DECISIONS (written by assistant)
@@ -136,7 +136,7 @@ Asked by the assistant during the pre-flight spec review (2026-07-26), answered 
 
 **⚑ 1. THE ONE DECISION AWAITING YOU — the EN chain's destination.** Mid-run, `modlitebna.cb6.cz` went live with the church's **own** site (Astro build, own nav, its own "Chci podpořit stavbu" CTA, and an `/en/` version). Our chain was built to land on **our** landing pages. Current state: CZ materials point everywhere at `modlitebna.cb6.cz` (now the church's live site — functional for donors, and still correct if our page later takes over the subdomain); EN QR + CTA button point at `https://cb6-en.vercel.app` (our EN landing page) while EN body/footer print `modlitebna.cb6.cz` — internally consistent QR-to-button, inconsistent button-to-footer. **Your call:** (a) EN chain → church's `/en/` site (regenerate EN QR + button text; our EN page becomes preview-only), or (b) EN chain → our page (unify EN body/footer back to the vercel URL, or get the subdomain pointed at us). Either is ~one command + brochure re-export. *Logic: I would not silently pick which of two live sites is the campaign's destination — that's a business call about whose page converts better and who owns the donor experience.*
 
-**2. Real CZ donation details replaced the "placeholder only" answer (Q1 premise changed).** Research found the church's **published** sanctuary account (1031051032/5500, VS 5061999, "Na modlitebnu") and their own official Paylibo payment-QR generator on cb6.cz/modlitebna. CZ materials use the real account + real payment QR; a dummy placeholder would have been *less* accurate than the church's own published channel. US giving remains honest-minimal (international transfer + hospodar@cb6.cz; no fabricated IBAN/SWIFT, no payment QR — not US practice, per Q1's own condition). *Reversal: swap the QR payload + account lines; QRs regenerate with one command.*
+**2. Real CZ donation details replaced the "placeholder only" answer (Q1 premise changed).** Research found the church's **published** sanctuary account (1031051032/5500, VS 5061999, "Na modlitebnu") and their own official Paylibo payment-QR generator on cb6.cz/modlitebna. CZ materials use the real account + real payment QR; a dummy placeholder would have been *less* accurate than the church's own published channel. US giving remains honest-minimal (international transfer + (redacted); no fabricated IBAN/SWIFT, no payment QR — not US practice, per Q1's own condition). *Reversal: swap the QR payload + account lines; QRs regenerate with one command.*
 
 **3. US tax treatment (per Q2 "assert per research"):** direct gifts are **not** US-tax-deductible (IRC 170(c)(2)(A); no Czech treaty article; church status irrelevant). Stated plainly wherever giving is discussed, incl. a persistent landing-page footer line. The "Friends of"-style 501(c)(3) intermediary option lives in `Research/US Tax Deductibility.md` as a recommendation to the client — **not** in the copy (chain-B's invented "route in progress" claim was disqualified in judging for exactly this). *One client answer changes the copy chain-wide: does a US 501(c)(3) partner exist?*
 
