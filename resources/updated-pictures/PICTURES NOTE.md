@@ -1,7 +1,7 @@
 # Updated Pictures — client Drive folder (2026-07-26)
 
 Source: Client email 2026-07-26 21:58 — "please find most up-to-date
-pictures here" → https://drive.google.com/drive/folders/197U2WbGmKgeeU1bv4LVUiw4Jn0uOCuDI
+pictures here" (shared Google Drive folder)
 (screenshot: `../client email 2026-07-26 — updated pictures + domain.jpg`).
 **These supersede the website `Modlitebna Images/` set where they overlap** — newer (Jun–Jul 2026 file
 dates on sal_10x) and higher resolution (2560×1440 vs 1920×1080).
