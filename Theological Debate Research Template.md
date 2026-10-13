@@ -1,7 +1,7 @@
 ---
 Category: Theological Research
 Type: Theological Debate
-Operator Name: Vojta
+Operator Name:
 Research Date:
 Theological Scope:
 Topic of Debate:
@@ -36,7 +36,7 @@ The operator is both a theology student, and active pastor for a church in Pragu
 
 This research template is designed to compare, contrast, and analyze opposing viewpoints regarding the interpretation or implementation of Biblical teachings.
 # Theological Scope and Diversity
-> [!VOJTA -- Fill in ALL the section below 👇]+
+> [!OPERATOR -- Fill in ALL the section below 👇]+
 
 Contain the range of viewpoints within the following H2 and H3 parameters
 
@@ -180,7 +180,7 @@ The time periods that the research include views from:
 ```
 
 # Research question
-> [!VOJTA -- This is the last section for your to fill in 👇]+
+> [!OPERATOR -- This is the last section for your to fill in 👇]+
 
 Compare and contrast the main viewpoints of the justification and the New Perspective on Paul.
 
